@@ -473,46 +473,482 @@
   </div>
 </section>
 
+```html
+<!-- ================= BOOKING / CONTACT ================= -->
+
 <section class="contact" id="contact">
+
   <div class="wrap contact-grid">
+
+    <!-- LEFT SIDE -->
     <div>
-      <div class="eyebrow">Enquire</div>
-      <h2 style="font-size:clamp(28px,4vw,38px); margin-top:14px;">Plan your stay</h2>
-      <p style="color:rgba(245,243,236,0.7); margin-top:16px; max-width:40ch;">Send us your dates and party size, and we'll confirm availability and any details you need before booking.</p>
+
+      <div class="eyebrow">Book Your Stay</div>
+
+      <h2 style="font-size:clamp(28px,4vw,38px); margin-top:14px;">
+        Plan your stay
+      </h2>
+
+      <p style="color:rgba(245,243,236,0.7); margin-top:16px; max-width:40ch;">
+        Send us your dates and party size. You can contact Shani Manor
+        directly through WhatsApp or send us a booking inquiry.
+      </p>
+
+
       <div class="contact-info" style="margin-top:40px;">
-        <div class="row"><div class="k">Address</div><div class="v">No. 69, Panvilla Road, Hikkaduwa</div></div>
-        <div class="row"><div class="k">Phone / WhatsApp</div><div class="v">+94773531582</div></div>
-        <div class="row"><div class="k">Email</div><div class="v">[Insert email address]</div></div>
+
+        <!-- ADDRESS -->
+        <div class="row">
+          <div class="k">Address</div>
+
+          <div class="v">
+            No. 69, Panvilla Road, Hikkaduwa
+          </div>
+        </div>
+
+
+        <!-- PHONE -->
+        <div class="row">
+          <div class="k">Phone</div>
+
+          <div class="v">
+            <a
+              href="tel:+94773531582"
+              style="color:inherit;text-decoration:none;"
+            >
+              0773531582
+            </a>
+          </div>
+        </div>
+
+
+        <!-- WHATSAPP -->
+        <div class="row">
+          <div class="k">WhatsApp</div>
+
+          <div class="v">
+            <a
+              href="https://wa.me/94772331582"
+              target="_blank"
+              rel="noopener"
+              style="color:inherit;text-decoration:none;"
+            >
+              0772331582
+            </a>
+          </div>
+        </div>
+
+
+        <!-- LOCATION -->
+        <div class="row">
+          <div class="k">Location</div>
+
+          <div class="v">
+            <a
+              href="https://maps.app.goo.gl/Wff6FKDq85YSZM5j9?g_st=iw"
+              target="_blank"
+              rel="noopener"
+              style="color:inherit;text-decoration:none;"
+            >
+              📍 Open in Google Maps
+            </a>
+          </div>
+        </div>
+
       </div>
+
     </div>
-    <form onsubmit="return false;">
+
+
+    <!-- RIGHT SIDE / BOOKING FORM -->
+
+    <form id="bookingForm" onsubmit="return false;">
+
+      <!-- NAME + GUESTS -->
+
       <div class="field-row">
-        <div><label for="name">Full name</label><input id="name" type="text" placeholder="Your name"></div>
-        <div><label for="guests">Party size</label><input id="guests" type="number" min="1" max="9" placeholder="Up to 9"></div>
+
+        <div>
+          <label for="name">Full name</label>
+
+          <input
+            id="name"
+            type="text"
+            placeholder="Your name"
+            required
+          >
+        </div>
+
+
+        <div>
+          <label for="guests">Party size</label>
+
+          <input
+            id="guests"
+            type="number"
+            min="1"
+            max="9"
+            placeholder="Up to 9"
+            required
+          >
+        </div>
+
       </div>
+
+
+      <!-- CHECK IN + CHECK OUT -->
+
       <div class="field-row">
-        <div><label for="checkin">Check-in</label><input id="checkin" type="date"></div>
-        <div><label for="checkout">Check-out</label><input id="checkout" type="date"></div>
+
+        <div>
+          <label for="checkin">Check-in</label>
+
+          <input
+            id="checkin"
+            type="date"
+            required
+          >
+        </div>
+
+
+        <div>
+          <label for="checkout">Check-out</label>
+
+          <input
+            id="checkout"
+            type="date"
+            required
+          >
+        </div>
+
       </div>
+
+
+      <!-- MESSAGE -->
+
       <div>
+
         <label for="message">Message</label>
-        <textarea id="message" placeholder="Tell us a little about your stay..."></textarea>
+
+        <textarea
+          id="message"
+          placeholder="Tell us a little about your stay..."
+        ></textarea>
+
       </div>
-      <button class="submit-btn" type="submit">Send Enquiry</button>
+
+
+      <!-- TWO BOOKING BUTTONS -->
+
+      <div
+        class="booking-buttons"
+        style="
+          display:flex;
+          gap:12px;
+          margin-top:20px;
+          flex-wrap:wrap;
+        "
+      >
+
+        <!-- WHATSAPP BUTTON -->
+
+        <button
+          type="button"
+          class="submit-btn"
+          onclick="sendWhatsAppBooking()"
+          style="
+            flex:1;
+            min-width:210px;
+            background:#25D366;
+            color:white;
+            border:none;
+            cursor:pointer;
+          "
+        >
+          💬 Book via WhatsApp
+        </button>
+
+
+        <!-- BOOKING INQUIRY BUTTON -->
+
+        <button
+          type="button"
+          class="submit-btn"
+          onclick="sendBookingInquiry()"
+          style="
+            flex:1;
+            min-width:210px;
+            background:#ffffff;
+            color:#0B2E33;
+            border:1px solid rgba(255,255,255,0.5);
+            cursor:pointer;
+          "
+        >
+          📩 Booking Inquiry
+        </button>
+
+      </div>
+
+
+      <p
+        style="
+          font-size:12px;
+          color:rgba(245,243,236,0.55);
+          margin-top:14px;
+          text-align:center;
+        "
+      >
+        WhatsApp: 0772331582 &nbsp; | &nbsp; Phone: 0773531582
+      </p>
+
     </form>
+
   </div>
+
 </section>
 
+
+<!-- ================= FOOTER ================= -->
+
 <footer>
+
   <div class="wrap foot-row">
-    <div>&copy; <span id="year"></span> Shani Manor</div>
-    <div class="foot-tag">Every Detail. Every Stay. Signature.</div>
-    <div>Managed by Signature Hospitality</div>
+
+    <div>
+      &copy; <span id="year"></span> Shani Manor
+    </div>
+
+    <div class="foot-tag">
+      Every Detail. Every Stay. Signature.
+    </div>
+
+    <div>
+      Managed by Signature Hospitality
+    </div>
+
   </div>
+
 </footer>
 
+
+<!-- ================= BOOKING SCRIPT ================= -->
+
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* YEAR */
+
+  document.getElementById('year').textContent =
+    new Date().getFullYear();
+
+
+  /* CHECKOUT DATE */
+
+  const checkinInput =
+    document.getElementById('checkin');
+
+  const checkoutInput =
+    document.getElementById('checkout');
+
+
+  if (checkinInput && checkoutInput) {
+
+    checkinInput.addEventListener('change', function () {
+
+      checkoutInput.min = this.value;
+
+      if (
+        checkoutInput.value &&
+        checkoutInput.value <= this.value
+      ) {
+        checkoutInput.value = '';
+      }
+
+    });
+
+  }
+
+
+  /* GET BOOKING DETAILS */
+
+  function getBookingDetails() {
+
+    const name =
+      document.getElementById('name').value.trim();
+
+    const guests =
+      document.getElementById('guests').value;
+
+    const checkin =
+      document.getElementById('checkin').value;
+
+    const checkout =
+      document.getElementById('checkout').value;
+
+    const message =
+      document.getElementById('message').value.trim();
+
+
+    /* REQUIRED FIELDS */
+
+    if (
+      !name ||
+      !guests ||
+      !checkin ||
+      !checkout
+    ) {
+
+      alert(
+        'Please enter your name, party size, check-in date and check-out date.'
+      );
+
+      return null;
+
+    }
+
+
+    /* GUEST LIMIT */
+
+    if (guests < 1 || guests > 9) {
+
+      alert(
+        'The maximum occupancy is 9 guests.'
+      );
+
+      return null;
+
+    }
+
+
+    /* DATE VALIDATION */
+
+    if (
+      new Date(checkout) <=
+      new Date(checkin)
+    ) {
+
+      alert(
+        'Check-out date must be after the check-in date.'
+      );
+
+      return null;
+
+    }
+
+
+    return {
+      name: name,
+      guests: guests,
+      checkin: checkin,
+      checkout: checkout,
+      message: message
+    };
+
+  }
+
+
+  /* =========================
+     WHATSAPP BOOKING
+     ========================= */
+
+  function sendWhatsAppBooking() {
+
+    const booking =
+      getBookingDetails();
+
+    if (!booking) return;
+
+
+    /* YOUR WHATSAPP NUMBER */
+
+    const whatsappNumber =
+      '94772331582';
+
+
+    const text =
+`Hello Shani Manor,
+
+I would like to make a booking inquiry.
+
+Name: ${booking.name}
+Guests: ${booking.guests}
+Check-in: ${booking.checkin}
+Check-out: ${booking.checkout}
+
+Message:
+${booking.message || 'No additional message'}
+
+Please confirm availability and the total rate.
+
+Thank you.`;
+
+
+    const whatsappURL =
+      'https://wa.me/' +
+      whatsappNumber +
+      '?text=' +
+      encodeURIComponent(text);
+
+
+    window.open(
+      whatsappURL,
+      '_blank'
+    );
+
+  }
+
+
+  /* =========================
+     BOOKING INQUIRY
+     ========================= */
+
+  function sendBookingInquiry() {
+
+    const booking =
+      getBookingDetails();
+
+    if (!booking) return;
+
+
+    /*
+      CHANGE THIS EMAIL ADDRESS
+      TO YOUR REAL RESERVATION EMAIL
+    */
+
+    const reservationEmail =
+      'reservation@shanimanor.com';
+
+
+    const subject =
+      'Booking Inquiry - Shani Manor - ' +
+      booking.name;
+
+
+    const body =
+`Hello Shani Manor,
+
+I would like to make a booking inquiry.
+
+Name: ${booking.name}
+Party size: ${booking.guests}
+Check-in: ${booking.checkin}
+Check-out: ${booking.checkout}
+
+Message:
+${booking.message || 'No additional message'}
+
+Please confirm availability and the total rate.
+
+Thank you.`;
+
+
+    window.location.href =
+      'mailto:' +
+      reservationEmail +
+      '?subject=' +
+      encodeURIComponent(subject) +
+      '&body=' +
+      encodeURIComponent(body);
+
+  }
+
 </script>
-</body>
-</html>
