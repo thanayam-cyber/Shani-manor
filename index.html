@@ -653,38 +653,126 @@
 
     <!-- RIGHT SIDE / BOOKING FORM -->
 
-    <form id="bookingForm" onsubmit="return false;">
+<form id="bookingForm" onsubmit="return false;">
 
-      <!-- NAME + GUESTS -->
+  <!-- BOOKING TYPE -->
 
-      <div class="field-row">
+  <div style="margin-bottom:24px;">
 
-        <div>
-          <label for="name">Full name</label>
+    <label
+      for="bookingType"
+      style="
+        display:block;
+        margin-bottom:8px;
+        font-weight:600;
+      "
+    >
+      Booking Type
+    </label>
 
-          <input
-            id="name"
-            type="text"
-            placeholder="Your name"
-            required
-          >
-        </div>
+    <select
+      id="bookingType"
+      onchange="updateBookingType()"
+      style="
+        width:100%;
+        padding:13px 14px;
+        border:1px solid rgba(245,243,236,0.25);
+        background:#0B2E33;
+        color:#F6FAF9;
+        font-family:'Inter',sans-serif;
+        font-size:14px;
+      "
+    >
+
+      <option value="group">
+        Group Booking — Entire Villa
+      </option>
+
+      <option value="individual">
+        Individual Room — USD 75/night
+      </option>
+
+    </select>
+
+  </div>
 
 
-        <div>
-          <label for="guests">Party size</label>
+  <!-- INDIVIDUAL ROOM INFORMATION -->
 
-          <input
-            id="guests"
-            type="number"
-            min="1"
-            max="9"
-            placeholder="Up to 9"
-            required
-          >
-        </div>
+  <div
+    id="individualRoomInfo"
+    style="
+      display:none;
+      background:rgba(192,138,62,0.10);
+      border:1px solid rgba(192,138,62,0.35);
+      padding:18px;
+      margin-bottom:24px;
+    "
+  >
 
-      </div>
+    <div
+      style="
+        font-family:'Fraunces',serif;
+        font-size:24px;
+        color:#E0AE63;
+        margin-bottom:8px;
+      "
+    >
+      Individual Room Stay
+    </div>
+
+    <p
+      style="
+        margin:0;
+        color:rgba(245,243,236,0.72);
+        font-size:14px;
+      "
+    >
+      USD 75 per night for 2 persons.
+      Breakfast is included.
+    </p>
+
+  </div>
+
+
+  <!-- NAME + GUESTS -->
+
+  <div class="field-row">
+
+    <div>
+
+      <label for="name">
+        Full name
+      </label>
+
+      <input
+        id="name"
+        type="text"
+        placeholder="Your name"
+        required
+      >
+
+    </div>
+
+
+    <div>
+
+      <label for="guests">
+        Party size
+      </label>
+
+      <input
+        id="guests"
+        type="number"
+        min="1"
+        max="9"
+        placeholder="Up to 9"
+        required
+      >
+
+    </div>
+
+  </div>
 
 
       <!-- CHECK IN + CHECK OUT -->
@@ -1041,5 +1129,44 @@ Thank you.`;
       encodeURIComponent(body);
 
   }
+  /* =========================
+     BOOKING TYPE
+     ========================= */
 
+  function updateBookingType() {
+
+    const bookingType =
+      document.getElementById('bookingType').value;
+
+    const individualInfo =
+      document.getElementById('individualRoomInfo');
+
+    const guestsInput =
+      document.getElementById('guests');
+
+    if (bookingType === 'individual') {
+
+      individualInfo.style.display = 'block';
+
+      guestsInput.value = 2;
+      guestsInput.min = 2;
+      guestsInput.max = 2;
+      guestsInput.readOnly = true;
+
+      guestsInput.placeholder = '2 persons';
+
+    } else {
+
+      individualInfo.style.display = 'none';
+
+      guestsInput.value = '';
+      guestsInput.min = 1;
+      guestsInput.max = 9;
+      guestsInput.readOnly = false;
+
+      guestsInput.placeholder = 'Up to 9';
+
+    }
+
+  }
 </script>
