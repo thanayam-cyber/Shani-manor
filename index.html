@@ -1,29 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Shani Manor | Heritage Villa in Hikkaduwa</title>
+<title>Shani Manor | Hikkaduwa Heritage Villa</title>
 
 <meta name="description"
-content="Shani Manor is a beautiful 1927 heritage villa in Hikkaduwa, Sri Lanka. Book the entire villa or an individual room with breakfast included.">
+content="Shani Manor is a 1927 heritage villa in Hikkaduwa, Sri Lanka. Book the entire villa or an individual room with breakfast included.">
 
 <style>
 
-:root{
-    --dark:#20251f;
-    --green:#465342;
-    --green-dark:#202a20;
-    --cream:#f5f0e6;
-    --light:#fbfaf7;
-    --gold:#cdb98f;
-    --text:#252925;
-    --muted:#6d746b;
-    --white:#ffffff;
-    --line:rgba(30,35,29,.15);
-    --shadow:0 18px 50px rgba(0,0,0,.12);
-}
+/* =========================================================
+   BASIC
+========================================================= */
 
 *{
     box-sizing:border-box;
@@ -35,10 +28,15 @@ html{
 
 body{
     margin:0;
-    background:var(--light);
-    color:var(--text);
+    background:#faf9f5;
+    color:#252a24;
     font-family:Arial,Helvetica,sans-serif;
     line-height:1.6;
+}
+
+img{
+    display:block;
+    max-width:100%;
 }
 
 a{
@@ -55,10 +53,12 @@ textarea{
 
 .container{
     width:min(1180px,92%);
-    margin:auto;
+    margin:0 auto;
 }
 
-h1,h2,h3{
+h1,
+h2,
+h3{
     font-family:Georgia,"Times New Roman",serif;
     font-weight:400;
     line-height:1.08;
@@ -66,893 +66,1633 @@ h1,h2,h3{
 
 h2{
     font-size:clamp(40px,5vw,65px);
-    margin:10px 0 20px;
+    margin:12px 0 20px;
 }
 
 p{
-    color:var(--muted);
+    color:#6b726a;
 }
 
 .eyebrow{
     text-transform:uppercase;
-    letter-spacing:.2em;
+    letter-spacing:.22em;
     font-size:11px;
     font-weight:bold;
-    color:var(--green);
+    color:#4d5a45;
 }
 
-/* ================= HEADER ================= */
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 header{
     position:absolute;
     top:0;
     left:0;
     right:0;
-    z-index:100;
-    color:white;
+    z-index:1000;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(17,23,17,.55),
+            rgba(17,23,17,.10)
+        );
 }
 
 .nav{
-    height:82px;
-    display:flex;
-    justify-content:space-between;
+    min-height:92px;
+
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+
     align-items:center;
+
+    gap:35px;
+
     border-bottom:1px solid rgba(255,255,255,.25);
 }
 
+
+/* LOGO */
+
 .logo{
-    font-family:Georgia,serif;
-    font-size:25px;
+    display:block;
+
+    font-family:Georgia,"Times New Roman",serif;
+
+    font-size:27px;
+
+    line-height:1;
+
     letter-spacing:.08em;
+
+    white-space:nowrap;
 }
 
 .logo small{
     display:block;
+
+    margin-top:10px;
+
     text-align:center;
-    font-family:Arial,sans-serif;
+
+    font-family:Arial,Helvetica,sans-serif;
+
     font-size:8px;
-    letter-spacing:.3em;
-    margin-top:-3px;
+
+    line-height:1;
+
+    letter-spacing:.34em;
 }
+
+
+/* NAVIGATION */
 
 .navlinks{
     display:flex;
-    gap:28px;
-    font-size:13px;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:38px;
+
+    font-size:15px;
+
+    white-space:nowrap;
+}
+
+.navlinks a{
+    transition:.2s;
 }
 
 .navlinks a:hover{
-    opacity:.7;
+    opacity:.65;
 }
 
+
+/* BOOK BUTTON */
+
 .nav-button{
-    padding:10px 18px;
-    border:1px solid rgba(255,255,255,.7);
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    min-height:76px;
+
+    padding:0 30px;
+
+    border:1px solid rgba(255,255,255,.55);
+
+    white-space:nowrap;
+
+    font-size:15px;
 }
+
+.nav-button:hover{
+    background:#fff;
+    color:#202820;
+}
+
+
+/* MOBILE MENU */
 
 .menu{
     display:none;
-    background:none;
+
     border:0;
+
+    background:none;
+
     color:white;
+
     font-size:28px;
+
+    cursor:pointer;
 }
 
-/* ================= HERO ================= */
+
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero{
-    min-height:95vh;
-    display:flex;
-    align-items:flex-end;
+
     position:relative;
+
+    min-height:100svh;
+
+    display:flex;
+
+    align-items:center;
+
     overflow:hidden;
 
+    color:white;
+
     background:
-    linear-gradient(
-        rgba(20,27,21,.35),
-        rgba(20,27,21,.72)
-    ),
-    linear-gradient(
-        135deg,
-        #aaa58e,
-        #707766 40%,
-        #424c3e 70%,
-        #202820
-    );
+        linear-gradient(
+            180deg,
+            rgba(25,31,24,.25),
+            rgba(25,31,24,.72)
+        ),
+        linear-gradient(
+            135deg,
+            #aaa58f 0%,
+            #777d6d 35%,
+            #4b5748 68%,
+            #202920 100%
+        );
 }
 
-.hero::after{
+
+/* PLACEHOLDER */
+
+.hero::before{
+
     content:"PHOTO WILL BE ADDED";
+
     position:absolute;
+
     inset:0;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
-    color:rgba(255,255,255,.3);
+
+    color:rgba(255,255,255,.23);
+
+    font-size:11px;
+
     letter-spacing:.35em;
-    font-size:10px;
+
     pointer-events:none;
 }
 
+
+/* HERO CONTENT */
+
 .hero-content{
+
     position:relative;
+
     z-index:2;
-    color:white;
-    padding-bottom:100px;
-    max-width:850px;
+
+    width:100%;
+
+    max-width:900px;
+
+    padding-top:170px;
+
+    padding-bottom:70px;
 }
+
 
 .hero .eyebrow{
-    color:#e4d8bd;
+
+    color:#e5dac1;
+
+    margin-bottom:20px;
 }
+
 
 .hero h1{
-    font-size:clamp(55px,8vw,105px);
-    margin:15px 0 25px;
+
+    margin:0 0 25px;
+
+    color:#fff;
+
+    font-size:clamp(58px,8vw,105px);
+
+    line-height:.93;
+
+    letter-spacing:-.025em;
 }
 
+
 .hero p{
-    color:rgba(255,255,255,.86);
+
     max-width:650px;
+
+    margin:0;
+
+    color:rgba(255,255,255,.86);
+
     font-size:18px;
 }
 
+
 .hero-buttons{
+
     display:flex;
-    gap:12px;
-    margin-top:30px;
+
     flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-top:30px;
 }
 
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
 .btn{
+
     display:inline-flex;
-    justify-content:center;
+
     align-items:center;
-    padding:14px 23px;
+
+    justify-content:center;
+
+    min-height:50px;
+
+    padding:0 24px;
+
     border:1px solid transparent;
+
     cursor:pointer;
+
     font-weight:bold;
+
     transition:.25s;
 }
 
 .btn-dark{
-    background:var(--green-dark);
+
+    background:#263126;
+
     color:white;
 }
 
 .btn-dark:hover{
+
+    background:#111711;
+
     transform:translateY(-2px);
-    background:#101610;
 }
 
 .btn-white{
+
     background:white;
-    color:var(--dark);
+
+    color:#202620;
+}
+
+.btn-white:hover{
+
+    transform:translateY(-2px);
 }
 
 .btn-outline{
+
     color:white;
+
     border-color:rgba(255,255,255,.7);
 }
 
-/* ================= INTRO ================= */
+.btn-outline:hover{
+
+    background:white;
+
+    color:#202620;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
 
 .intro{
+
     padding:110px 0;
 }
 
 .intro-grid{
+
     display:grid;
+
     grid-template-columns:1fr 1.2fr;
+
     gap:80px;
+
     align-items:center;
 }
 
 .quote{
-    border-left:2px solid var(--gold);
+
+    border-left:2px solid #cdb98f;
+
     padding-left:28px;
+
+    margin-bottom:28px;
+
     font-family:Georgia,serif;
+
     font-size:27px;
-    color:var(--dark);
+
+    color:#20251f;
 }
 
 .stats{
+
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
+
     gap:20px;
+
     margin-top:35px;
 }
 
 .stat{
-    border-top:1px solid var(--line);
+
+    border-top:1px solid rgba(30,35,29,.15);
+
     padding-top:15px;
 }
 
 .stat strong{
+
     display:block;
+
     font-family:Georgia,serif;
+
     font-size:30px;
+
     font-weight:400;
 }
 
-/* ================= STORY ================= */
+
+/* =========================================================
+   SECTIONS
+========================================================= */
 
 .section{
+
     padding:105px 0;
 }
 
 .section-alt{
-    background:var(--cream);
+
+    background:#f3eee4;
 }
-
-.story{
-    display:grid;
-    grid-template-columns:1.1fr .9fr;
-    gap:45px;
-}
-
-.photo-placeholder{
-    min-height:530px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:rgba(255,255,255,.7);
-    letter-spacing:.25em;
-    font-size:11px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #aaa38d,
-        #737968 50%,
-        #354033
-    );
-}
-
-.story-text{
-    background:white;
-    padding:48px;
-}
-
-.story-text h3{
-    font-size:40px;
-}
-
-.timeline{
-    border-top:1px solid var(--line);
-    margin-top:30px;
-}
-
-.timeline-row{
-    display:grid;
-    grid-template-columns:90px 1fr;
-    gap:20px;
-    padding:17px 0;
-    border-bottom:1px solid var(--line);
-}
-
-.timeline-row strong{
-    font-family:Georgia,serif;
-    font-weight:400;
-}
-
-/* ================= STAY ================= */
 
 .section-heading{
+
     display:flex;
+
     justify-content:space-between;
+
+    align-items:flex-end;
+
     gap:40px;
-    align-items:end;
+
     margin-bottom:45px;
 }
 
 .section-heading p{
+
     max-width:500px;
+
+    margin-bottom:0;
 }
 
-.rooms{
+
+/* =========================================================
+   HISTORY
+========================================================= */
+
+.story{
+
     display:grid;
+
+    grid-template-columns:1.1fr .9fr;
+
+    gap:45px;
+
+    align-items:stretch;
+}
+
+
+.photo-placeholder{
+
+    min-height:530px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:rgba(255,255,255,.72);
+
+    font-size:11px;
+
+    letter-spacing:.28em;
+
+    background:
+        linear-gradient(
+            135deg,
+            #aaa28d,
+            #737a68 50%,
+            #343e32
+        );
+}
+
+
+.story-text{
+
+    background:#fff;
+
+    padding:48px;
+}
+
+.story-text h3{
+
+    font-size:40px;
+
+    margin:12px 0 20px;
+}
+
+.timeline{
+
+    margin-top:30px;
+
+    border-top:1px solid rgba(30,35,29,.15);
+}
+
+.timeline-row{
+
+    display:grid;
+
+    grid-template-columns:90px 1fr;
+
+    gap:20px;
+
+    padding:17px 0;
+
+    border-bottom:1px solid rgba(30,35,29,.15);
+}
+
+.timeline-row strong{
+
+    font-family:Georgia,serif;
+
+    font-weight:400;
+}
+
+
+/* =========================================================
+   ROOMS
+========================================================= */
+
+.rooms{
+
+    display:grid;
+
     grid-template-columns:repeat(2,1fr);
+
     gap:28px;
 }
 
 .room-card{
-    background:white;
-    box-shadow:var(--shadow);
+
+    background:#fff;
+
+    box-shadow:0 18px 50px rgba(0,0,0,.10);
 }
 
+
 .room-photo{
+
     height:320px;
+
     display:flex;
-    justify-content:center;
+
     align-items:center;
-    color:rgba(255,255,255,.7);
-    font-size:10px;
+
+    justify-content:center;
+
+    color:rgba(255,255,255,.72);
+
+    font-size:11px;
+
     letter-spacing:.25em;
 
     background:
-    linear-gradient(
-        135deg,
-        #a8a18b,
-        #68705e 50%,
-        #30392e
-    );
+        linear-gradient(
+            135deg,
+            #aaa28d,
+            #68715f 50%,
+            #30392e
+        );
 }
 
+
 .room-content{
+
     padding:30px;
 }
 
+
 .room-content h3{
-    font-size:35px;
+
+    font-size:36px;
+
     margin:10px 0;
 }
 
+
 .price{
+
     font-family:Georgia,serif;
-    font-size:30px;
+
+    font-size:31px;
+
+    color:#20251f;
 }
+
 
 .price small{
-    font-family:Arial,sans-serif;
+
+    font-family:Arial,Helvetica,sans-serif;
+
     font-size:13px;
-    color:var(--muted);
+
+    color:#70776e;
 }
+
 
 .features{
-    padding:0;
-    margin:20px 0 25px;
+
     list-style:none;
+
+    padding:0;
+
+    margin:20px 0 28px;
 }
+
 
 .features li{
+
     margin:7px 0;
+
+    color:#626a62;
 }
 
+
 .features li::before{
+
     content:"✓";
-    color:var(--green);
+
+    color:#4d5a45;
+
     font-weight:bold;
+
     margin-right:9px;
 }
 
-/* ================= AMENITIES ================= */
+
+/* =========================================================
+   AMENITIES
+========================================================= */
 
 .amenities{
+
     display:grid;
+
     grid-template-columns:repeat(4,1fr);
+
     gap:1px;
-    background:var(--line);
+
+    background:rgba(30,35,29,.15);
 }
 
 .amenity{
-    background:var(--light);
+
+    background:#faf9f5;
+
     padding:30px 22px;
+
     min-height:150px;
 }
 
 .amenity strong{
+
     display:block;
-    font-family:Georgia,serif;
-    font-size:21px;
-    font-weight:400;
+
     margin-bottom:8px;
+
+    font-family:Georgia,serif;
+
+    font-size:21px;
+
+    font-weight:400;
 }
 
 .amenity span{
+
+    color:#6b726a;
+
     font-size:13px;
-    color:var(--muted);
 }
 
-/* ================= EXPERIENCES ================= */
+
+/* =========================================================
+   EXPERIENCES
+========================================================= */
 
 .experiences{
+
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
+
     gap:18px;
 }
 
+
 .experience{
+
     min-height:370px;
+
     padding:30px;
+
     display:flex;
+
     flex-direction:column;
+
     justify-content:flex-end;
+
     color:white;
 
     background:
-    linear-gradient(
-        #929786,
-        #4e5c4a 55%,
-        #273127
-    );
+        linear-gradient(
+            #939888,
+            #4d5b49 55%,
+            #273127
+        );
 }
+
 
 .experience:nth-child(2){
+
     background:
-    linear-gradient(
-        #b2a486,
-        #746a52 55%,
-        #3c3c30
-    );
+        linear-gradient(
+            #b2a486,
+            #736951 55%,
+            #3b3b30
+        );
 }
+
 
 .experience:nth-child(3){
+
     background:
-    linear-gradient(
-        #aaa99a,
-        #626f63 55%,
-        #2d372e
-    );
+        linear-gradient(
+            #aaa99a,
+            #626f63 55%,
+            #2d372e
+        );
 }
+
 
 .experience h3{
-    font-size:34px;
+
     margin:8px 0;
+
+    font-size:35px;
 }
 
+
 .experience p{
+
     color:rgba(255,255,255,.78);
+
     font-size:14px;
 }
 
-/* ================= BOOKING ================= */
+
+/* =========================================================
+   BOOKING
+========================================================= */
 
 .booking{
-    background:var(--green-dark);
-    color:white;
+
     padding:105px 0;
+
+    background:#202a20;
+
+    color:white;
 }
+
 
 .booking-grid{
+
     display:grid;
+
     grid-template-columns:.75fr 1.25fr;
+
     gap:55px;
+
+    align-items:start;
 }
 
+
 .booking .eyebrow{
+
     color:#d8c6a4;
 }
 
+
 .booking h2{
-    font-size:55px;
+
+    color:white;
+
+    font-size:56px;
 }
+
 
 .booking-intro p{
-    color:rgba(255,255,255,.7);
+
+    color:rgba(255,255,255,.70);
 }
+
 
 .booking-card{
+
     background:white;
-    color:var(--dark);
+
+    color:#20251f;
+
     padding:32px;
-    box-shadow:var(--shadow);
+
+    box-shadow:0 20px 55px rgba(0,0,0,.25);
 }
 
+
+/* BOOKING OPTIONS */
+
 .booking-options{
+
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:12px;
+
     margin-bottom:25px;
 }
 
+
 .booking-option{
-    border:1px solid var(--line);
+
+    display:block;
+
+    border:1px solid rgba(30,35,29,.15);
+
     padding:18px;
+
     cursor:pointer;
+
+    transition:.2s;
 }
+
 
 .booking-option.active{
-    border-color:var(--green);
-    box-shadow:inset 0 0 0 1px var(--green);
+
     background:#f3f5ef;
+
+    border-color:#4d5a45;
+
+    box-shadow:
+        inset 0 0 0 1px #4d5a45;
 }
+
 
 .booking-option input{
-    accent-color:var(--green);
+
+    accent-color:#4d5a45;
 }
 
+
 .booking-option strong{
+
     display:block;
+
+    margin-top:4px;
+
     font-family:Georgia,serif;
+
     font-size:20px;
 }
 
+
 .booking-option small{
-    color:var(--muted);
+
+    color:#6d746b;
 }
 
+
+/* FORM */
+
 .form-grid{
+
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:15px;
 }
 
+
 .field{
+
     display:flex;
+
     flex-direction:column;
+
     gap:6px;
 }
 
-.full{
+
+.field.full{
+
     grid-column:1/-1;
 }
 
+
 label{
+
     font-size:11px;
+
     font-weight:bold;
+
     letter-spacing:.08em;
 }
+
 
 input,
 select,
 textarea{
-    border:1px solid #d7d8d1;
-    padding:13px;
+
+    width:100%;
+
+    border:1px solid #d6d8d1;
+
     background:white;
+
+    padding:13px;
+
     outline:none;
 }
+
 
 input:focus,
 select:focus,
 textarea:focus{
-    border-color:var(--green);
+
+    border-color:#4d5a45;
 }
 
+
 textarea{
+
     min-height:100px;
+
     resize:vertical;
 }
 
+
 .room-field{
+
     display:none;
 }
 
+
 .room-field.show{
+
     display:flex;
 }
 
+
+/* SUMMARY */
+
 .summary{
-    background:var(--cream);
+
+    background:#f3eee4;
+
     padding:18px;
+
     margin:22px 0;
 }
 
+
 .summary-line{
+
     display:flex;
+
     justify-content:space-between;
+
+    gap:15px;
+
     padding:4px 0;
 }
 
+
 .summary-total{
-    border-top:1px solid var(--line);
+
+    border-top:1px solid rgba(30,35,29,.15);
+
     margin-top:9px;
+
     padding-top:12px;
+
     font-size:20px;
-    font-weight:bold;
 }
+
 
 .form-note{
-    font-size:11px;
-    color:var(--muted);
+
     margin-top:10px;
+
+    font-size:11px;
+
+    color:#6d746b;
 }
 
-/* ================= FAQ ================= */
+
+/* =========================================================
+   FAQ
+========================================================= */
 
 .faq{
+
     max-width:850px;
+
     margin:auto;
 }
 
+
 details{
-    border-top:1px solid var(--line);
+
+    border-top:1px solid rgba(30,35,29,.15);
+
     padding:20px 0;
 }
 
+
 details:last-child{
-    border-bottom:1px solid var(--line);
+
+    border-bottom:1px solid rgba(30,35,29,.15);
 }
 
+
 summary{
+
     cursor:pointer;
+
     font-family:Georgia,serif;
+
     font-size:21px;
 }
 
+
 details p{
+
     padding-top:12px;
+
+    margin-bottom:0;
 }
 
-/* ================= CTA ================= */
+
+/* =========================================================
+   CTA
+========================================================= */
 
 .cta{
+
     padding:105px 0;
+
     text-align:center;
-    background:var(--cream);
+
+    background:#f3eee4;
 }
+
 
 .cta h2{
+
     max-width:800px;
-    margin:10px auto 28px;
+
+    margin:12px auto 28px;
 }
 
-/* ================= FOOTER ================= */
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer{
+
     background:#151b15;
+
     color:white;
+
     padding:60px 0 30px;
 }
 
+
 .footer-grid{
+
     display:grid;
+
     grid-template-columns:1.5fr 1fr 1fr;
+
     gap:40px;
 }
 
+
+footer h3{
+
+    font-size:23px;
+}
+
+
 footer p{
+
     color:#9da59a;
+
     font-size:14px;
 }
 
+
 .footer-bottom{
-    border-top:1px solid rgba(255,255,255,.12);
-    margin-top:35px;
-    padding-top:20px;
-    color:#7f887e;
-    font-size:12px;
+
     display:flex;
+
     justify-content:space-between;
+
+    gap:20px;
+
+    border-top:1px solid rgba(255,255,255,.12);
+
+    margin-top:35px;
+
+    padding-top:20px;
+
+    color:#7f887e;
+
+    font-size:12px;
 }
 
-/* ================= WHATSAPP ================= */
+
+/* =========================================================
+   FLOATING WHATSAPP
+========================================================= */
 
 .whatsapp{
+
     position:fixed;
+
     right:20px;
+
     bottom:20px;
-    z-index:200;
-    background:#263528;
-    color:white;
+
+    z-index:2000;
+
     padding:13px 20px;
+
     border-radius:50px;
+
+    background:#263528;
+
+    color:white;
+
     font-weight:bold;
+
     box-shadow:0 10px 30px rgba(0,0,0,.25);
 }
 
-/* ================= MOBILE ================= */
 
-@media(max-width:850px){
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:900px){
+
+    .nav{
+
+        grid-template-columns:auto auto;
+
+        justify-content:space-between;
+
+        gap:15px;
+    }
+
 
     .navlinks{
+
         display:none;
     }
+
 
     .nav-button{
+
         display:none;
     }
 
+
     .menu{
+
         display:block;
     }
 
-    .hero{
-        min-height:88vh;
-    }
 
     .hero-content{
+
+        padding-top:155px;
+
         padding-bottom:70px;
     }
 
-    .intro-grid,
-    .story,
-    .booking-grid{
+
+    .intro-grid{
+
         grid-template-columns:1fr;
-        gap:35px;
+
+        gap:40px;
     }
+
+
+    .story{
+
+        grid-template-columns:1fr;
+    }
+
 
     .rooms{
+
         grid-template-columns:1fr;
     }
 
+
+    .booking-grid{
+
+        grid-template-columns:1fr;
+
+        gap:40px;
+    }
+
+
     .amenities{
+
         grid-template-columns:1fr 1fr;
     }
 
+
     .experiences{
+
         grid-template-columns:1fr;
     }
 
+
     .section-heading{
+
         display:block;
     }
 
 }
 
-@media(max-width:560px){
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:600px){
 
     .container{
+
         width:92%;
     }
 
-    .hero h1{
-        font-size:54px;
+
+    .nav{
+
+        min-height:76px;
     }
 
+
+    .logo{
+
+        font-size:20px;
+    }
+
+
+    .logo small{
+
+        font-size:7px;
+
+        letter-spacing:.23em;
+
+        margin-top:8px;
+    }
+
+
+    .hero{
+
+        min-height:100svh;
+    }
+
+
+    .hero-content{
+
+        padding-top:145px;
+
+        padding-bottom:60px;
+    }
+
+
+    .hero .eyebrow{
+
+        font-size:9px;
+
+        letter-spacing:.16em;
+    }
+
+
+    .hero h1{
+
+        font-size:54px;
+
+        line-height:.94;
+    }
+
+
     .hero p{
+
         font-size:16px;
     }
 
+
+    .hero-buttons{
+
+        flex-direction:column;
+
+        align-items:stretch;
+    }
+
+
+    .hero-buttons .btn{
+
+        width:100%;
+    }
+
+
     .stats{
+
         grid-template-columns:1fr;
     }
 
-    .booking-options,
+
+    .amenities{
+
+        grid-template-columns:1fr;
+    }
+
+
+    .booking-options{
+
+        grid-template-columns:1fr;
+    }
+
+
     .form-grid{
+
         grid-template-columns:1fr;
     }
 
-    .full{
+
+    .field.full{
+
         grid-column:auto;
     }
 
-    .amenities{
-        grid-template-columns:1fr;
-    }
 
     .booking-card{
+
         padding:20px;
     }
 
+
     .booking h2{
-        font-size:42px;
+
+        font-size:43px;
     }
 
+
     .story-text{
+
         padding:30px;
     }
 
+
+    .story-text h3{
+
+        font-size:34px;
+    }
+
+
     .footer-grid{
+
         grid-template-columns:1fr;
     }
 
+
     .footer-bottom{
+
         display:block;
     }
 
+
     .footer-bottom span{
+
         display:block;
+
         margin-bottom:7px;
     }
 
+
     .whatsapp{
+
         right:12px;
+
         bottom:12px;
     }
+
 }
 
 </style>
+
 </head>
+
 
 <body>
 
-<!-- ================= HEADER ================= -->
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header>
 
 <div class="container nav">
 
+
 <a href="#" class="logo">
+
 SHANI MANOR
-<small>HIKKADUWA · SRI LANKA</small>
+
+<small>
+HIKKADUWA · SRI LANKA
+</small>
+
 </a>
+
 
 <nav class="navlinks">
-<a href="#story">Our Story</a>
-<a href="#stay">Stay</a>
-<a href="#experience">Experience</a>
-<a href="#booking">Book</a>
-</nav>
 
-<a href="#booking" class="nav-button">
-BOOK YOUR STAY
+<a href="#story">
+Our Story
 </a>
 
-<button class="menu">☰</button>
+<a href="#stay">
+Stay
+</a>
+
+<a href="#experience">
+Experience
+</a>
+
+<a href="#booking">
+Book
+</a>
+
+</nav>
+
+
+<a href="#booking" class="nav-button">
+
+BOOK YOUR STAY
+
+</a>
+
+
+<button class="menu" aria-label="Menu">
+☰
+</button>
+
 
 </div>
 
 </header>
 
 
-<!-- ================= HERO ================= -->
+
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero">
 
+
 <div class="container hero-content">
 
+
 <div class="eyebrow">
-A 1927 Heritage House · Hikkaduwa
+
+A 1927 HERITAGE HOUSE · HIKKADUWA
+
 </div>
 
+
 <h1>
+
 Stay inside<br>
+
 history.
+
 </h1>
 
+
 <p>
-A beautifully intimate heritage manor on Sri Lanka's southern coast.
-Come as a group and take the whole house, or reserve an individual
-room with breakfast included.
+
+A beautifully intimate heritage manor on Sri Lanka's
+southern coast. Come as a group and take the whole house,
+or reserve an individual room with breakfast included.
+
 </p>
+
 
 <div class="hero-buttons">
 
+
 <a href="#booking" class="btn btn-white">
+
 Check availability
+
 </a>
+
 
 <a href="#story" class="btn btn-outline">
+
 Discover Shani Manor
+
 </a>
 
+
 </div>
+
 
 </div>
 
 </section>
 
 
-<!-- ================= INTRO ================= -->
 
-<section class="intro" id="story">
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<section class="intro">
+
 
 <div class="container intro-grid">
+
 
 <div>
 
 <div class="eyebrow">
-The Manor
+THE MANOR
 </div>
 
+
 <h2>
+
 A house with a story worth staying for.
+
 </h2>
 
 </div>
 
+
 <div>
 
+
 <div class="quote">
+
 "A 1927 coastal home where heritage,
 privacy and simple Sri Lankan hospitality meet."
+
 </div>
 
+
 <p>
-Shani Manor is a private four-bedroom heritage villa in Hikkaduwa.
-Its character comes from its original construction, generous
-proportions and the atmosphere of an old Sri Lankan home.
+
+Shani Manor is a private four-bedroom heritage villa
+in Hikkaduwa. Its character comes from its original
+construction, generous proportions and the atmosphere
+of an old Sri Lankan home.
+
 </p>
+
 
 <div class="stats">
 
+
 <div class="stat">
-<strong>1927</strong>
+
+<strong>
+1927
+</strong>
+
 Year of the house
+
 </div>
 
+
 <div class="stat">
-<strong>4</strong>
+
+<strong>
+4
+</strong>
+
 Bedrooms
+
 </div>
+
 
 <div class="stat">
-<strong>9</strong>
+
+<strong>
+9
+</strong>
+
 Maximum villa guests
-</div>
 
 </div>
+
+
+</div>
+
 
 </div>
 
@@ -961,61 +1701,112 @@ Maximum villa guests
 </section>
 
 
-<!-- ================= HISTORY ================= -->
 
-<section class="section section-alt">
+<!-- =====================================================
+     HISTORY
+===================================================== -->
+
+<section class="section section-alt" id="story">
+
 
 <div class="container story">
 
+
 <div class="photo-placeholder">
+
 PHOTO WILL BE ADDED
+
 </div>
+
 
 <div class="story-text">
 
+
 <div class="eyebrow">
-History of Shani Manor
+
+HISTORY OF SHANI MANOR
+
 </div>
 
+
 <h3>
+
 Built in 1927.
+
 </h3>
 
-<p>
-Shani Manor carries the physical character of an earlier Sri Lanka.
-The original house was constructed using clay, metal, cabook
-(laterite stone) and lime.
-</p>
 
 <p>
-Its approximately 18-inch-thick walls and traditional materials
-give the property a sense of permanence that is difficult to
-reproduce today.
+
+Shani Manor carries the physical character of an earlier
+Sri Lanka. The original house was constructed using clay,
+metal, cabook (laterite stone) and lime.
+
 </p>
 
+
 <p>
-The roof tiles were imported from the United Kingdom, adding another
-chapter to the story of this remarkable coastal home.
+
+Its approximately 18-inch-thick walls and traditional
+materials give the property a sense of permanence that
+is difficult to reproduce today.
+
 </p>
+
+
+<p>
+
+The roof tiles were imported from the United Kingdom,
+adding another chapter to the story of this remarkable
+coastal home.
+
+</p>
+
 
 <div class="timeline">
 
-<div class="timeline-row">
-<strong>1927</strong>
-<span>The original manor was constructed.</span>
-</div>
 
 <div class="timeline-row">
-<strong>Materials</strong>
-<span>Clay, cabook, lime and traditional construction.</span>
+
+<strong>
+1927
+</strong>
+
+<span>
+The original manor was constructed.
+</span>
+
 </div>
+
 
 <div class="timeline-row">
-<strong>Today</strong>
-<span>A heritage stay in Hikkaduwa for modern travellers.</span>
-</div>
+
+<strong>
+Materials
+</strong>
+
+<span>
+Clay, cabook, lime and traditional construction.
+</span>
 
 </div>
+
+
+<div class="timeline-row">
+
+<strong>
+Today
+</strong>
+
+<span>
+A heritage stay in Hikkaduwa for modern travellers.
+</span>
+
+</div>
+
+
+</div>
+
 
 </div>
 
@@ -1024,18 +1815,24 @@ chapter to the story of this remarkable coastal home.
 </section>
 
 
-<!-- ================= STAY ================= -->
+
+<!-- =====================================================
+     STAY
+===================================================== -->
 
 <section class="section" id="stay">
 
+
 <div class="container">
 
+
 <div class="section-heading">
+
 
 <div>
 
 <div class="eyebrow">
-Choose your stay
+CHOOSE YOUR STAY
 </div>
 
 <h2>
@@ -1044,102 +1841,189 @@ Stay your way.
 
 </div>
 
+
 <p>
-Reserve the complete manor for privacy with family and friends,
-or enjoy an individual room with breakfast included.
+
+Reserve the complete manor for privacy with family
+and friends, or enjoy an individual room with
+breakfast included.
+
 </p>
 
+
 </div>
+
 
 
 <div class="rooms">
 
-<!-- VILLA -->
+
+<!-- ENTIRE VILLA -->
 
 <article class="room-card">
 
+
 <div class="room-photo">
+
 VILLA PHOTO
+
 </div>
+
 
 <div class="room-content">
 
+
 <div class="eyebrow">
-Private Villa
+PRIVATE VILLA
 </div>
+
 
 <h3>
 Entire Shani Manor
 </h3>
 
+
 <div class="price">
+
 USD 260
-<small>/ night</small>
+
+<small>
+/ night
+</small>
+
 </div>
 
+
 <ul class="features">
-<li>4 bedrooms</li>
-<li>Up to 9 guests</li>
-<li>Entire villa private</li>
-<li>Swimming pool access</li>
-<li>Free Wi-Fi</li>
-<li>Food charged at cost</li>
-<li>20% food preparation/service charge</li>
-<li>Tea & coffee included</li>
+
+<li>
+4 bedrooms
+</li>
+
+<li>
+Up to 9 guests
+</li>
+
+<li>
+Entire villa private
+</li>
+
+<li>
+Swimming pool access
+</li>
+
+<li>
+Free Wi-Fi
+</li>
+
+<li>
+Food charged at cost
+</li>
+
+<li>
+20% food preparation/service charge
+</li>
+
+<li>
+Tea & coffee included
+</li>
+
 </ul>
+
 
 <a href="#booking"
 class="btn btn-dark"
 onclick="chooseVilla()">
+
 Book the villa
+
 </a>
+
 
 </div>
 
 </article>
 
 
-<!-- ROOM -->
+
+<!-- INDIVIDUAL ROOM -->
 
 <article class="room-card">
 
+
 <div class="room-photo">
+
 ROOM PHOTO
+
 </div>
+
 
 <div class="room-content">
 
+
 <div class="eyebrow">
-Bed & Breakfast
+BED & BREAKFAST
 </div>
+
 
 <h3>
 Individual Room
 </h3>
 
+
 <div class="price">
+
 USD 75
-<small>/ room / night</small>
+
+<small>
+/ room / night
+</small>
+
 </div>
 
+
 <ul class="features">
-<li>1 air-conditioned bedroom</li>
-<li>Maximum 2 adults</li>
-<li>Breakfast included</li>
-<li>Swimming pool access</li>
-<li>Free Wi-Fi</li>
-<li>Shared villa facilities</li>
+
+<li>
+1 air-conditioned bedroom
+</li>
+
+<li>
+Maximum 2 adults
+</li>
+
+<li>
+Breakfast included
+</li>
+
+<li>
+Swimming pool access
+</li>
+
+<li>
+Free Wi-Fi
+</li>
+
+<li>
+Shared villa facilities
+</li>
+
 </ul>
+
 
 <a href="#booking"
 class="btn btn-dark"
 onclick="chooseRoom()">
+
 Book a room
+
 </a>
+
 
 </div>
 
 </article>
+
 
 </div>
 
@@ -1148,18 +2032,23 @@ Book a room
 </section>
 
 
-<!-- ================= AMENITIES ================= -->
+
+<!-- =====================================================
+     AMENITIES
+===================================================== -->
 
 <section class="section section-alt">
 
+
 <div class="container">
+
 
 <div class="section-heading">
 
 <div>
 
 <div class="eyebrow">
-At Shani Manor
+AT SHANI MANOR
 </div>
 
 <h2>
@@ -1173,33 +2062,58 @@ Comfort, without losing character.
 
 <div class="amenities">
 
+
 <div class="amenity">
-<strong>Swimming Pool</strong>
+
+<strong>
+Swimming Pool
+</strong>
+
 <span>
 A relaxed place to cool down after a day on the coast.
 </span>
+
 </div>
 
+
 <div class="amenity">
-<strong>Breakfast</strong>
+
+<strong>
+Breakfast
+</strong>
+
 <span>
 Included with individual room bookings under BB.
 </span>
+
 </div>
 
+
 <div class="amenity">
-<strong>Free Wi-Fi</strong>
+
+<strong>
+Free Wi-Fi
+</strong>
+
 <span>
 Complimentary Wi-Fi for guests.
 </span>
+
 </div>
 
+
 <div class="amenity">
-<strong>Heritage</strong>
+
+<strong>
+Heritage
+</strong>
+
 <span>
 A genuine 1927 house with traditional construction details.
 </span>
+
 </div>
+
 
 </div>
 
@@ -1208,18 +2122,24 @@ A genuine 1927 house with traditional construction details.
 </section>
 
 
-<!-- ================= EXPERIENCES ================= -->
+
+<!-- =====================================================
+     EXPERIENCE
+===================================================== -->
 
 <section class="section" id="experience">
 
+
 <div class="container">
 
+
 <div class="section-heading">
+
 
 <div>
 
 <div class="eyebrow">
-Around Hikkaduwa
+AROUND HIKKADUWA
 </div>
 
 <h2>
@@ -1228,20 +2148,27 @@ Make the manor your base.
 
 </div>
 
+
 <p>
-Spend slow mornings at the house, then head out to discover
-the coast, food, wildlife and culture of southern Sri Lanka.
+
+Spend slow mornings at the house, then head out to
+discover the coast, food, wildlife and culture of
+southern Sri Lanka.
+
 </p>
+
 
 </div>
 
 
+
 <div class="experiences">
+
 
 <article class="experience">
 
 <div class="eyebrow" style="color:#eee">
-01 · Coast
+01 · COAST
 </div>
 
 <h3>
@@ -1249,17 +2176,20 @@ Hikkaduwa Beach
 </h3>
 
 <p>
+
 Sun, sea and the lively atmosphere of one of Sri Lanka's
 best-known southern coastal towns.
+
 </p>
 
 </article>
 
 
+
 <article class="experience">
 
 <div class="eyebrow" style="color:#eee">
-02 · Explore
+02 · EXPLORE
 </div>
 
 <h3>
@@ -1267,17 +2197,20 @@ Southern Sri Lanka
 </h3>
 
 <p>
-Use Hikkaduwa as a comfortable base for coastal adventures
-and day trips.
+
+Use Hikkaduwa as a comfortable base for coastal
+adventures and day trips.
+
 </p>
 
 </article>
 
 
+
 <article class="experience">
 
 <div class="eyebrow" style="color:#eee">
-03 · Slow down
+03 · SLOW DOWN
 </div>
 
 <h3>
@@ -1285,11 +2218,14 @@ Life at the Manor
 </h3>
 
 <p>
-Enjoy the pool, heritage atmosphere and the simple pleasure
-of staying in an old Sri Lankan home.
+
+Enjoy the pool, heritage atmosphere and the simple
+pleasure of staying in an old Sri Lankan home.
+
 </p>
 
 </article>
+
 
 </div>
 
@@ -1298,39 +2234,59 @@ of staying in an old Sri Lankan home.
 </section>
 
 
-<!-- ================= BOOKING ================= -->
+
+<!-- =====================================================
+     BOOKING
+===================================================== -->
 
 <section class="booking" id="booking">
+
 
 <div class="container booking-grid">
 
 
 <div class="booking-intro">
 
+
 <div class="eyebrow">
-Reservations
+RESERVATIONS
 </div>
+
 
 <h2>
 Choose your stay.
 </h2>
 
-<p>
-Send us your dates and preferences. Your request will open in
-WhatsApp with all the booking details already prepared.
-</p>
 
 <p>
+
+Send us your dates and preferences. Your request
+will open in WhatsApp with all the booking details
+already prepared.
+
+</p>
+
+
+<p>
+
 <strong>Entire Villa</strong><br>
+
 USD 260 / night
+
 </p>
 
+
 <p>
+
 <strong>Individual Room BB</strong><br>
+
 USD 75 / room / night
+
 </p>
+
 
 </div>
+
 
 
 <div class="booking-card">
@@ -1338,7 +2294,11 @@ USD 75 / room / night
 
 <div class="booking-options">
 
-<label class="booking-option active" id="villaOption">
+
+<label
+class="booking-option active"
+id="villaOption">
+
 
 <input
 type="radio"
@@ -1347,18 +2307,25 @@ value="villa"
 checked
 onchange="updateBooking()">
 
+
 <strong>
 Entire Villa
 </strong>
+
 
 <small>
 USD 260 / night · Up to 9 guests
 </small>
 
+
 </label>
 
 
-<label class="booking-option" id="roomOption">
+
+<label
+class="booking-option"
+id="roomOption">
+
 
 <input
 type="radio"
@@ -1366,20 +2333,26 @@ name="bookingType"
 value="room"
 onchange="updateBooking()">
 
+
 <strong>
 Individual Room
 </strong>
+
 
 <small>
 USD 75 / room / night · BB
 </small>
 
+
 </label>
+
 
 </div>
 
 
+
 <form onsubmit="sendBooking(event)">
+
 
 <div class="form-grid">
 
@@ -1398,6 +2371,7 @@ required>
 </div>
 
 
+
 <div class="field">
 
 <label>
@@ -1412,24 +2386,40 @@ required>
 </div>
 
 
+
 <div
 class="field room-field"
 id="roomField">
+
 
 <label>
 ROOM
 </label>
 
+
 <select id="room">
 
-<option>Room 1</option>
-<option>Room 2</option>
-<option>Room 3</option>
-<option>Room 4</option>
+<option>
+Room 1
+</option>
+
+<option>
+Room 2
+</option>
+
+<option>
+Room 3
+</option>
+
+<option>
+Room 4
+</option>
 
 </select>
 
+
 </div>
+
 
 
 <div class="field">
@@ -1438,10 +2428,13 @@ ROOM
 GUESTS
 </label>
 
+
 <select id="guests">
+
 </select>
 
 </div>
+
 
 
 <div class="field">
@@ -1449,6 +2442,7 @@ GUESTS
 <label>
 FULL NAME
 </label>
+
 
 <input
 id="guestName"
@@ -1459,11 +2453,13 @@ required>
 </div>
 
 
+
 <div class="field">
 
 <label>
 WHATSAPP / PHONE
 </label>
+
 
 <input
 id="phone"
@@ -1474,11 +2470,13 @@ required>
 </div>
 
 
+
 <div class="field">
 
 <label>
 EMAIL
 </label>
+
 
 <input
 id="email"
@@ -1488,16 +2486,20 @@ placeholder="you@example.com">
 </div>
 
 
+
 <div class="field">
 
 <label>
 MEAL PLAN
 </label>
 
+
 <select id="meal">
+
 </select>
 
 </div>
+
 
 
 <div class="field full">
@@ -1505,6 +2507,7 @@ MEAL PLAN
 <label>
 SPECIAL REQUESTS
 </label>
+
 
 <textarea
 id="requests"
@@ -1516,52 +2519,89 @@ placeholder="Arrival time, food preferences, questions, etc."></textarea>
 </div>
 
 
+
 <div class="summary">
 
+
 <div class="summary-line">
-<span>Booking</span>
+
+<span>
+Booking
+</span>
+
 <strong id="summaryBooking">
 Entire Villa
 </strong>
+
 </div>
 
+
+
 <div class="summary-line">
-<span>Rate</span>
+
+<span>
+Rate
+</span>
+
 <strong id="summaryRate">
 USD 260 / night
 </strong>
+
 </div>
 
+
+
 <div class="summary-line">
-<span>Nights</span>
+
+<span>
+Nights
+</span>
+
 <strong id="summaryNights">
 —
 </strong>
+
 </div>
 
+
+
 <div class="summary-line summary-total">
-<span>Estimated accommodation</span>
+
+<span>
+Estimated accommodation
+</span>
+
 <strong id="summaryTotal">
 —
 </strong>
-</div>
 
 </div>
+
+
+</div>
+
 
 
 <button
 class="btn btn-dark"
 type="submit"
 style="width:100%">
+
 SEND BOOKING REQUEST ON WHATSAPP
+
 </button>
 
+
 <div class="form-note">
-This is a booking request. Final availability and confirmation
-will be provided by Shani Manor.
+
+This is a booking request. Final availability and
+confirmation will be provided by Shani Manor.
+
 </div>
 
+
 </form>
+
 
 </div>
 
@@ -1570,18 +2610,23 @@ will be provided by Shani Manor.
 </section>
 
 
-<!-- ================= FAQ ================= -->
+
+<!-- =====================================================
+     FAQ
+===================================================== -->
 
 <section class="section">
 
+
 <div class="container">
+
 
 <div class="section-heading">
 
 <div>
 
 <div class="eyebrow">
-Frequently asked
+FREQUENTLY ASKED
 </div>
 
 <h2>
@@ -1593,7 +2638,9 @@ Good to know.
 </div>
 
 
+
 <div class="faq">
+
 
 <details>
 
@@ -1602,11 +2649,15 @@ Can I book an individual room?
 </summary>
 
 <p>
-Yes. Individual rooms are available at USD 75 per room per
-night with breakfast included, for up to 2 adults.
+
+Yes. Individual rooms are available at USD 75 per
+room per night with breakfast included, for up to
+2 adults.
+
 </p>
 
 </details>
+
 
 
 <details>
@@ -1616,11 +2667,14 @@ Can I book the entire villa?
 </summary>
 
 <p>
-Yes. The entire four-bedroom villa is available at USD 260
-per night for up to 9 guests.
+
+Yes. The entire four-bedroom villa is available at
+USD 260 per night for up to 9 guests.
+
 </p>
 
 </details>
+
 
 
 <details>
@@ -1630,13 +2684,16 @@ Is breakfast included?
 </summary>
 
 <p>
-Breakfast is included with individual room bookings under
-the BB plan. For entire-villa bookings, food is charged at
-cost with a 20% food preparation/service charge.
-Tea and coffee are included.
+
+Breakfast is included with individual room bookings
+under the BB plan. For entire-villa bookings, food
+is charged at cost with a 20% food preparation/service
+charge. Tea and coffee are included.
+
 </p>
 
 </details>
+
 
 
 <details>
@@ -1646,11 +2703,14 @@ How far is Hikkaduwa Beach?
 </summary>
 
 <p>
-Shani Manor is located in Hikkaduwa, with Hikkaduwa Beach
-less than 10 minutes away.
+
+Shani Manor is located in Hikkaduwa, with Hikkaduwa
+Beach less than 10 minutes away.
+
 </p>
 
 </details>
+
 
 
 <details>
@@ -1660,12 +2720,15 @@ Do guests have access to the pool and Wi-Fi?
 </summary>
 
 <p>
+
 Yes. Guests have access to the swimming pool and
 complimentary Wi-Fi.
+
 </p>
 
 </details>
 
+
 </div>
 
 </div>
@@ -1673,37 +2736,54 @@ complimentary Wi-Fi.
 </section>
 
 
-<!-- ================= CTA ================= -->
+
+<!-- =====================================================
+     FINAL CTA
+===================================================== -->
 
 <section class="cta">
 
+
 <div class="container">
 
+
 <div class="eyebrow">
-Shani Manor · Hikkaduwa
+SHANI MANOR · HIKKADUWA
 </div>
 
+
 <h2>
-Come for the coast.
+Come for the coast.<br>
 Stay for the story.
 </h2>
 
-<a href="#booking" class="btn btn-dark">
+
+<a href="#booking"
+class="btn btn-dark">
+
 Plan your stay
+
 </a>
+
 
 </div>
 
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
+
 <div class="container">
 
+
 <div class="footer-grid">
+
 
 <div>
 
@@ -1711,11 +2791,13 @@ Plan your stay
 SHANI MANOR
 </div>
 
+
 <p>
 A 1927 heritage villa in Hikkaduwa, Sri Lanka.
 </p>
 
 </div>
+
 
 
 <div>
@@ -1735,6 +2817,7 @@ Individual Room BB · USD 75/night
 </div>
 
 
+
 <div>
 
 <h3>
@@ -1748,7 +2831,9 @@ Sri Lanka
 
 </div>
 
+
 </div>
+
 
 
 <div class="footer-bottom">
@@ -1763,46 +2848,68 @@ Heritage · Hospitality · Hikkaduwa
 
 </div>
 
+
 </div>
 
 </footer>
 
 
-<!-- ================= FLOATING WHATSAPP ================= -->
+
+<!-- =====================================================
+     FLOATING WHATSAPP
+===================================================== -->
 
 <a
 href="#"
 class="whatsapp"
 onclick="directWhatsApp(event)">
+
 WhatsApp
+
 </a>
+
 
 
 <script>
 
 /* =========================================================
    SHANI MANOR WHATSAPP NUMBER
+=========================================================
 
    IMPORTANT:
-   Replace the number below with your real reservations
-   WhatsApp number.
+
+   CHANGE THIS:
+
+   947XXXXXXXXX
+
+   TO YOUR REAL SHANI MANOR WHATSAPP NUMBER.
 
    Example:
+
    const WHATSAPP_NUMBER = "94771234567";
 
-   Do NOT put + or spaces.
+   Do NOT use:
+   +94
+   spaces
+   brackets
+
 ========================================================= */
 
 const WHATSAPP_NUMBER = "947XXXXXXXXX";
 
 
-/* ================= PRICES ================= */
+/* =========================================================
+   RATES
+========================================================= */
 
 const VILLA_RATE = 260;
+
 const ROOM_RATE = 75;
 
 
-/* ================= ELEMENTS ================= */
+/* =========================================================
+   ELEMENTS
+========================================================= */
 
 const checkin =
 document.getElementById("checkin");
@@ -1820,22 +2927,28 @@ const roomField =
 document.getElementById("roomField");
 
 
-/* ================= DATE SETUP ================= */
+/* =========================================================
+   DATE SETUP
+========================================================= */
 
-const today =
+const now =
 new Date();
 
 const todayISO =
 new Date(
-today.getTime()
+now.getTime()
 -
-today.getTimezoneOffset()*60000
+now.getTimezoneOffset()*60000
 )
 .toISOString()
 .split("T")[0];
 
-checkin.min = todayISO;
-checkout.min = todayISO;
+
+checkin.min =
+todayISO;
+
+checkout.min =
+todayISO;
 
 
 checkin.addEventListener(
@@ -1847,8 +2960,7 @@ checkin.value || todayISO;
 
 updateSummary();
 
-}
-);
+});
 
 
 checkout.addEventListener(
@@ -1857,7 +2969,9 @@ updateSummary
 );
 
 
-/* ================= BOOKING TYPE ================= */
+/* =========================================================
+   UPDATE BOOKING TYPE
+========================================================= */
 
 function updateBooking(){
 
@@ -1866,6 +2980,8 @@ document.querySelector(
 'input[name="bookingType"]:checked'
 ).value;
 
+
+/* ACTIVE CARD */
 
 document
 .getElementById("villaOption")
@@ -1885,7 +3001,7 @@ type === "room"
 );
 
 
-/* ROOM FIELD */
+/* ROOM SELECTOR */
 
 roomField.classList.toggle(
 "show",
@@ -1900,51 +3016,78 @@ guests.innerHTML = "";
 
 if(type === "villa"){
 
+/* 1-9 GUESTS */
+
 for(let i=1;i<=9;i++){
 
 const option =
 document.createElement("option");
 
-option.value=i;
+option.value =
+i;
 
 option.textContent =
-i + (i===1 ? " Guest" : " Guests");
+i +
+(
+i === 1
+?
+" Guest"
+:
+" Guests"
+);
 
-guests.appendChild(option);
+guests.appendChild(
+option
+);
 
 }
 
 
-/* VILLA MEAL */
+/* VILLA MEAL PLAN */
 
 meal.innerHTML = `
 
-<option value="Food at cost">
+<option value="Food at cost + 20% preparation/service charge">
+
 Food at cost + 20% preparation/service charge
+
 </option>
 
 <option value="Tea & coffee included">
+
 Tea & coffee included
+
 </option>
 
 `;
 
 }
+
 else{
 
-/* ROOM GUESTS */
+/* 1-2 ADULTS */
 
 for(let i=1;i<=2;i++){
 
 const option =
 document.createElement("option");
 
-option.value=i;
+option.value =
+i;
 
 option.textContent =
-i + (i===1 ? " Adult" : " Adults");
+i +
+(
+i === 1
+?
+" Adult"
+:
+" Adults"
+);
 
-guests.appendChild(option);
+guests.appendChild(
+option
+);
 
 }
 
@@ -1954,43 +3097,54 @@ guests.appendChild(option);
 meal.innerHTML = `
 
 <option value="BB — Breakfast Included">
+
 BB — Breakfast Included
+
 </option>
 
 `;
 
 }
 
+
 updateSummary();
 
 }
 
 
-/* ================= QUICK BUTTONS ================= */
+/* =========================================================
+   QUICK VILLA BUTTON
+========================================================= */
 
 function chooseVilla(){
 
 document.querySelector(
 'input[value="villa"]'
-).checked=true;
+).checked = true;
 
 updateBooking();
 
 }
 
+
+/* =========================================================
+   QUICK ROOM BUTTON
+========================================================= */
 
 function chooseRoom(){
 
 document.querySelector(
 'input[value="room"]'
-).checked=true;
+).checked = true;
 
 updateBooking();
 
 }
 
 
-/* ================= NIGHTS ================= */
+/* =========================================================
+   CALCULATE NIGHTS
+========================================================= */
 
 function getNights(){
 
@@ -1998,30 +3152,44 @@ if(
 !checkin.value ||
 !checkout.value
 ){
+
 return 0;
+
 }
+
 
 const start =
 new Date(
-checkin.value+"T00:00:00"
+checkin.value +
+"T00:00:00"
 );
+
 
 const end =
 new Date(
-checkout.value+"T00:00:00"
+checkout.value +
+"T00:00:00"
 );
+
 
 const nights =
 Math.round(
 (end-start)/86400000
 );
 
-return nights > 0 ? nights : 0;
+
+return nights > 0
+?
+nights
+:
+0;
 
 }
 
 
-/* ================= SUMMARY ================= */
+/* =========================================================
+   UPDATE SUMMARY
+========================================================= */
 
 function updateSummary(){
 
@@ -2030,8 +3198,10 @@ document.querySelector(
 'input[name="bookingType"]:checked'
 ).value;
 
+
 const nights =
 getNights();
+
 
 const rate =
 type === "villa"
@@ -2054,13 +3224,19 @@ type === "villa"
 document.getElementById(
 "summaryRate"
 ).textContent =
-"USD " + rate + " / night";
+"USD " +
+rate +
+" / night";
 
 
 document.getElementById(
 "summaryNights"
 ).textContent =
-nights || "—";
+nights
+?
+nights
+:
+"—";
 
 
 document.getElementById(
@@ -2069,19 +3245,25 @@ document.getElementById(
 nights
 ?
 "USD " +
-(rate*nights).toLocaleString()
+(
+rate*nights
+).toLocaleString()
 :
 "—";
 
 }
 
 
-/* ================= WHATSAPP BOOKING ================= */
+/* =========================================================
+   SEND BOOKING TO WHATSAPP
+========================================================= */
 
 function sendBooking(event){
 
 event.preventDefault();
 
+
+/* NUMBER CHECK */
 
 if(
 WHATSAPP_NUMBER.includes("X")
@@ -2096,11 +3278,15 @@ return;
 }
 
 
+/* TYPE */
+
 const type =
 document.querySelector(
 'input[name="bookingType"]:checked'
 ).value;
 
+
+/* NIGHTS */
 
 const nights =
 getNights();
@@ -2116,6 +3302,8 @@ return;
 
 }
 
+
+/* FORM VALUES */
 
 const name =
 document.getElementById(
@@ -2163,11 +3351,28 @@ const total =
 rate*nights;
 
 
+/* ROOM */
+
+let roomText = "";
+
+if(type === "room"){
+
+roomText =
+document.getElementById(
+"room"
+).value;
+
+}
+
+
+/* MESSAGE */
+
 let message =
 
 `SHANI MANOR BOOKING REQUEST
 
-Booking Type: ${
+Booking Type:
+${
 type === "villa"
 ?
 "Entire Villa"
@@ -2178,69 +3383,81 @@ type === "villa"
 ${
 type === "room"
 ?
-"Room: " +
-document.getElementById("room").value
-+
-"\n"
+"Room: " + roomText + "\n"
 :
 ""
 }
 
-Meal Plan: ${mealText}
+Meal Plan:
+${mealText}
 
-Guests: ${guestText}
+Guests:
+${guestText}
 
-Check-in: ${checkin.value}
+Check-in:
+${checkin.value}
 
-Check-out: ${checkout.value}
+Check-out:
+${checkout.value}
 
-Nights: ${nights}
+Nights:
+${nights}
 
-Rate: USD ${rate}/night
+Rate:
+USD ${rate} / night
 
 Estimated Accommodation:
 USD ${total}
 
-Guest Name: ${name}
+Guest Name:
+${name}
 
-WhatsApp / Phone: ${phone}
+WhatsApp / Phone:
+${phone}
 
-Email: ${
-email || "Not provided"
-}
+Email:
+${email || "Not provided"}
 
 Special Requests:
-${
-requests || "None"
-}
+${requests || "None"}
 
 Please confirm availability and final booking details.`;
 
 
+/* NUMBER */
+
 const number =
 WHATSAPP_NUMBER
-.replace(/\D/g,"");
+.replace(
+/\D/g,
+""
+);
 
 
-const url =
-"https://wa.me/"
-+
-number
-+
-"?text="
-+
-encodeURIComponent(message);
+/* URL */
 
+const whatsappURL =
+"https://wa.me/" +
+number +
+"?text=" +
+encodeURIComponent(
+message
+);
+
+
+/* OPEN */
 
 window.open(
-url,
+whatsappURL,
 "_blank"
 );
 
 }
 
 
-/* ================= DIRECT WHATSAPP ================= */
+/* =========================================================
+   FLOATING WHATSAPP
+========================================================= */
 
 function directWhatsApp(event){
 
@@ -2262,7 +3479,10 @@ return;
 
 const number =
 WHATSAPP_NUMBER
-.replace(/\D/g,"");
+.replace(
+/\D/g,
+""
+);
 
 
 const message =
@@ -2272,12 +3492,9 @@ encodeURIComponent(
 
 
 window.open(
-"https://wa.me/"
-+
-number
-+
-"?text="
-+
+"https://wa.me/" +
+number +
+"?text=" +
 message,
 "_blank"
 );
@@ -2285,7 +3502,9 @@ message,
 }
 
 
-/* ================= YEAR ================= */
+/* =========================================================
+   YEAR
+========================================================= */
 
 document.getElementById(
 "year"
@@ -2293,11 +3512,15 @@ document.getElementById(
 new Date().getFullYear();
 
 
-/* ================= START ================= */
+/* =========================================================
+   START BOOKING SYSTEM
+========================================================= */
 
 updateBooking();
 
 </script>
 
+
 </body>
+
 </html>
