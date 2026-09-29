@@ -140,10 +140,18 @@ header{
 .menu{
     display:none;
     border:0;
-    background:none;
-    color:white;
-    font-size:28px;
+    background:transparent;
+    color:#151915;
+    font-size:30px;
+    line-height:1;
     cursor:pointer;
+    padding:10px 6px;
+    position:relative;
+    z-index:1201;
+}
+
+.mobile-menu{
+    display:none;
 }
 
 /* HERO */
@@ -199,7 +207,7 @@ header{
 
 .hero h1{
     margin:0 0 25px;
-    color:#151915;
+    color:#151915 !important;
     font-size:clamp(58px,8vw,105px);
     line-height:.93;
     letter-spacing:-.025em;
@@ -208,7 +216,7 @@ header{
 .hero p{
     max-width:650px;
     margin:0;
-    color:#252a25;
+    color:#252a24 !important;
     font-size:18px;
 }
 
@@ -913,6 +921,7 @@ footer p{
 
     .menu{
         display:block;
+        color:#151915;
     }
 
     .hero-content{
@@ -955,6 +964,51 @@ footer p{
     }
 }
 
+/* MOBILE MENU */
+
+.mobile-menu{
+    position:fixed;
+    inset:0;
+    z-index:1200;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    background:rgba(250,249,245,.98);
+    padding:90px 28px 40px;
+    transform:translateX(100%);
+    transition:transform .3s ease;
+    pointer-events:none;
+}
+
+.mobile-menu.open{
+    transform:translateX(0);
+    pointer-events:auto;
+}
+
+.mobile-menu a{
+    display:block;
+    padding:15px 0;
+    border-bottom:1px solid rgba(30,35,29,.12);
+    color:#151915;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:24px;
+}
+
+.mobile-menu .mobile-book{
+    margin-top:24px;
+    padding:14px 20px;
+    text-align:center;
+    border:0;
+    background:#263126;
+    color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:14px;
+}
+
+@media(max-width:900px){
+    .mobile-menu{display:flex;}
+}
+
 /* MOBILE */
 
 @media(max-width:600px){
@@ -971,11 +1025,17 @@ footer p{
         margin-top:8px;
     }
 
-    .hero{min-height:100svh}
+    .hero{
+        min-height:100dvh;
+        height:100dvh;
+        align-items:center;
+        background-position:center center !important;
+        background-size:cover !important;
+    }
 
     .hero-content{
-        padding-top:145px;
-        padding-bottom:60px;
+        padding-top:105px;
+        padding-bottom:55px;
     }
 
     .hero .eyebrow{
@@ -1066,6 +1126,16 @@ BOOK YOUR STAY
 </div>
 
 </header>
+
+<!-- MOBILE MENU -->
+<nav class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="#story">Our Story</a>
+    <a href="#stay">Stay</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+    <a href="#booking" class="mobile-book">BOOK YOUR STAY</a>
+</nav>
 
 <!-- HERO -->
 
@@ -2715,6 +2785,47 @@ document.getElementById(
 ).textContent =
 new Date().getFullYear();
 
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuButton = document.querySelector(".menu");
+const mobileMenu = document.getElementById("mobileMenu");
+
+function closeMobileMenu(){
+    mobileMenu.classList.remove("open");
+    mobileMenu.setAttribute("aria-hidden","true");
+    menuButton.textContent = "☰";
+    document.body.style.overflow = "";
+}
+
+function openMobileMenu(){
+    mobileMenu.classList.add("open");
+    mobileMenu.setAttribute("aria-hidden","false");
+    menuButton.textContent = "✕";
+    document.body.style.overflow = "hidden";
+}
+
+menuButton.addEventListener("click", function(){
+    if(mobileMenu.classList.contains("open")){
+        closeMobileMenu();
+    }else{
+        openMobileMenu();
+    }
+});
+
+document.querySelectorAll(".mobile-menu a").forEach(function(link){
+    link.addEventListener("click", function(){
+        closeMobileMenu();
+    });
+});
+
+window.addEventListener("resize", function(){
+    if(window.innerWidth > 900){
+        closeMobileMenu();
+    }
+});
 
 /* =========================================================
    START
