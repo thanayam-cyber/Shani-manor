@@ -546,7 +546,7 @@ header{
     display:flex;
     flex-direction:column;
     justify-content:flex-end;
-    color:#555;
+    color:#111 !important;
 
     background-image:
         linear-gradient(rgba(39,49,39,.55), rgba(39,49,39,.75)),
@@ -577,17 +577,41 @@ header{
     background-repeat:no-repeat;
 }
 
+/* EXPERIENCE TEXT */
+
+.experience,
+.experience *{
+    color:#111 !important;
+}
+
 .experience h3{
     margin:8px 0;
     font-size:35px;
     color:#111 !important;
 }
 
+/* DESCRIPTION - WHITE BACKGROUND */
+
 .experience p{
     color:#111 !important;
     font-size:14px;
+    background:rgba(255,255,255,.88);
+    padding:10px 12px;
+    margin-top:8px;
+    border-radius:4px;
+    display:inline-block;
 }
 
+/* EXPERIENCE LABEL */
+
+.experience > div:first-child{
+    color:#111 !important;
+    background:rgba(255,255,255,.88);
+    padding:6px 10px;
+    display:inline-block;
+    width:max-content;
+    border-radius:3px;
+}
 /* BOOKING */
 
 .booking{
