@@ -2248,6 +2248,7 @@ WhatsApp
 
 </a>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 
 /* =========================================================
@@ -2702,10 +2703,60 @@ Hikkaduwa, Sri Lanka`;
 
 
 /* =========================================================
+   SHANI MANOR PMS AVAILABILITY CHECK
+   Reads only Shani Manor (H002) reservations from the shared PMS.
+   Does not create or modify PMS records.
+========================================================= */
+const SHANI_SUPABASE_URL = "https://gpghedyiowenwxraklnu.supabase.co";
+const SHANI_SUPABASE_PUBLISHABLE_KEY = "sb_publishable_jPdKMU6_yoXtdqkSiYAdXw_QvJryHyR";
+const SHANI_PROPERTY_ID = "d775899b-4671-44ab-b108-342a884755af";
+let shaniAvailabilityClient = null;
+let shaniAvailabilityMessage = "";
+function getShaniAvailabilityClient(){
+  if(!window.supabase || typeof window.supabase.createClient !== "function") throw new Error("Availability service is unavailable.");
+  if(!shaniAvailabilityClient) shaniAvailabilityClient=window.supabase.createClient(SHANI_SUPABASE_URL,SHANI_SUPABASE_PUBLISHABLE_KEY);
+  return shaniAvailabilityClient;
+}
+function shaniDateValue(r, keys){
+  for(const k of keys){ const v=r?.[k] ?? r?.reservation_data?.[k]; if(v) return String(v).slice(0,10); }
+  return "";
+}
+async function checkShaniAvailability(){
+  const start=checkin.value, end=checkout.value;
+  if(!start || !end || end<=start) return {ok:false, validDates:false, message:"Please select valid check-in and check-out dates."};
+  try{
+    const client=getShaniAvailabilityClient();
+    const {data,error}=await client.from("reservations")
+      .select("id,property_id,status,reservation_data")
+      .eq("property_id",SHANI_PROPERTY_ID);
+    if(error) throw error;
+    const blocking=(data||[]).filter(row=>{
+      const r=row.reservation_data||{};
+      const status=String(row.status||r.status||"").toLowerCase().replace(/[ _-]/g,"");
+      if(["cancelled","canceled","checkedout","noshow","void","deleted"].includes(status)) return false;
+      if(r.active===false || row.active===false) return false;
+      const a=shaniDateValue(row,["checkIn","checkin","arrivalDate","arrival","startDate"]);
+      const b=shaniDateValue(row,["checkOut","checkout","departureDate","departure","endDate"]);
+      return !!a && !!b && a<end && b>start;
+    });
+    if(blocking.length) return {ok:false,validDates:true,message:"These dates may already be booked. Please choose different dates or contact Shani Manor to confirm availability."};
+    return {ok:true,validDates:true,message:"No overlapping Shani Manor PMS reservation was found for these dates."};
+  }catch(err){
+    console.error("Shani Manor PMS availability check failed:",err);
+    return {ok:false,validDates:true,message:"We couldn't verify live availability right now. Please contact Shani Manor directly before submitting your request."};
+  }
+}
+async function requireShaniAvailability(){
+  const result=await checkShaniAvailability();
+  if(!result.ok){ alert(result.message); return false; }
+  return true;
+}
+
+/* =========================================================
    WHATSAPP BOOKING
 ========================================================= */
 
-function sendBooking(event){
+async function sendBooking(event){
 
 event.preventDefault();
 
@@ -2721,6 +2772,8 @@ alert(
 return;
 
 }
+
+if(!(await requireShaniAvailability())) return;
 
 const message =
 createBookingMessage();
@@ -2764,6 +2817,7 @@ return;
 
 }
 
+if(!(await requireShaniAvailability())) return;
 
 /* CREATE EMAIL */
 
