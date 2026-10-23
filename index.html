@@ -1205,7 +1205,7 @@ Discover Shani Manor
 </section>
 
 <!-- HOMEPAGE OFFER BANNERS: TWO COMPLIMENTARY-BENEFIT OFFERS -->
-<section class="homepage-offers" aria-label="Featured Shani Manor offers">
+<section class="homepage-offers" id="offers" aria-label="Featured Shani Manor offers">
   <div class="container homepage-offer-grid" id="homepageOfferBanners">
     <article class="homepage-offer-card"><span class="offer-tag">FOR COUPLES</span><h2>Exclusive Villa Offer for Couples</h2><p>Complimentary Galle Fort tour, Madu River boat safari, sea turtle visit and a special dinner on your final night.</p><p class="homepage-offer-note">For entire-villa stays of more than 6 nights.</p><a href="#offers" class="btn btn-white">Discover offer</a></article>
     <article class="homepage-offer-card"><span class="offer-tag">ENTIRE VILLA</span><h2>Exclusive Villa Offer</h2><p>Complimentary airport transfer, Galle Fort tour, Madu River boat safari, sea turtle visit and a special dinner on your final night.</p><p class="homepage-offer-note">For entire-villa stays of more than 6 nights.</p><a href="#offers" class="btn btn-white">Discover offer</a></article>
@@ -1660,14 +1660,6 @@ pleasure of staying in an old Sri Lankan home.
 </div>
 </div>
 
-</section>
-
-<!-- OFFERS & PROMOTIONS -->
-<section class="offers-section" id="offers">
-  <div class="container">
-    <div class="section-heading"><div><div class="eyebrow">COMPLIMENTARY EXPERIENCES</div><h2>Offers &amp; Promotions.</h2></div><p>Two special villa offers with complimentary experiences to make your Shani Manor stay memorable.</p></div>
-    <div class="offer-grid" id="offersGrid"></div>
-  </div>
 </section>
 
 <!-- BOOKING -->
@@ -2894,21 +2886,16 @@ function offerNightsValid(o){
   return nights>=Number(o.minNights||7);
 }
 function renderShaniOffers(){
-  const grid=document.getElementById("offersGrid"); if(!grid)return;
-  grid.innerHTML="";
-  shaniOffers.forEach(o=>{
-    const card=document.createElement("article");card.className="offer-card";
-    const tag=document.createElement("span");tag.className="offer-tag";tag.textContent=o.type==="couples"?"FOR COUPLES":"ENTIRE VILLA";
-    const title=document.createElement("h3");title.textContent=o.title;
-    const value=document.createElement("div");value.className="offer-value";value.textContent="Complimentary benefits for stays of "+(Number(o.minNights)||7)+"+ nights";
-    const desc=document.createElement("p");desc.textContent=o.description;
-    const valid=document.createElement("div");valid.className="offer-valid";valid.textContent=(offerDateValid(o)?"Offer active · ":o.enabled?"Offer currently outside validity dates · ":"Offer disabled · ")+"Valid "+o.start+" to "+o.end;
-    const btn=document.createElement("a");btn.href="#booking";btn.className="btn btn-dark";btn.textContent="Enquire & book";
-    btn.addEventListener("click",()=>{ if(o.type==="villa" && typeof chooseVilla==="function")chooseVilla(); const r=document.getElementById("requests");if(r){const note="Offer enquiry: "+o.title+" (complimentary benefits apply to stays of "+o.minNights+"+ nights).";if(!r.value.includes(note))r.value=(r.value?r.value+"\n":"")+note;} });
-    card.append(tag,title,value,desc,valid,btn);grid.appendChild(card);
-  });
   const bannerGrid=document.getElementById("homepageOfferBanners");
-  if(bannerGrid){bannerGrid.querySelectorAll(".homepage-offer-card").forEach((card,i)=>{const o=shaniOffers[i];if(!o)return;card.querySelector(".offer-tag").textContent=o.type==="couples"?"FOR COUPLES":"ENTIRE VILLA";card.querySelector("h2").textContent=o.title;card.querySelector("p").textContent=o.description;card.querySelector(".homepage-offer-note").textContent="Complimentary benefits for stays of "+o.minNights+"+ nights · Valid "+o.start+" to "+o.end;});}
+  if(!bannerGrid)return;
+  bannerGrid.querySelectorAll(".homepage-offer-card").forEach((card,i)=>{
+    const o=shaniOffers[i];if(!o)return;
+    card.querySelector(".offer-tag").textContent=o.type==="couples"?"FOR COUPLES":"ENTIRE VILLA";
+    card.querySelector("h2").textContent=o.title;
+    const paragraphs=card.querySelectorAll("p");
+    if(paragraphs[0])paragraphs[0].textContent=o.description;
+    if(paragraphs[1])paragraphs[1].textContent="Complimentary benefits for stays of "+o.minNights+"+ nights · Valid "+o.start+" to "+o.end;
+  });
 }
 
 /* =========================================================
