@@ -2726,9 +2726,11 @@ async function checkShaniAvailability(){
   if(!start || !end || end<=start) return {ok:false, validDates:false, message:"Please select valid check-in and check-out dates."};
   try{
     const client=getShaniAvailabilityClient();
-    const {data,error}=await client.from("reservations")
+    const queryPromise = client.from("reservations")
       .select("id,property_id,status,reservation_data")
       .eq("property_id",SHANI_PROPERTY_ID);
+    const timeoutPromise = new Promise((_, reject) => setTimeout(() => reject(new Error("Availability check timed out after 12 seconds")), 12000));
+    const {data,error}=await Promise.race([queryPromise, timeoutPromise]);
     if(error) throw error;
     const blocking=(data||[]).filter(row=>{
       const r=row.reservation_data||{};
@@ -2743,7 +2745,10 @@ async function checkShaniAvailability(){
     return {ok:true,validDates:true,message:"No overlapping Shani Manor PMS reservation was found for these dates."};
   }catch(err){
     console.error("Shani Manor PMS availability check failed:",err);
-    return {ok:false,validDates:true,message:"We couldn't verify live availability right now. Please contact Shani Manor directly before submitting your request."};
+    const detail = String(err?.message || err || "Unknown error");
+    return {ok:false,validDates:true,message:detail.includes("timed out")
+      ? "Availability check timed out. Please check your internet connection and try again. If it keeps happening, contact Shani Manor."
+      : "We couldn't verify live availability (" + detail + "). Please contact Shani Manor before submitting your request."};
   }
 }
 async function requireShaniAvailability(){
@@ -2775,7 +2780,14 @@ if(!whatsappTab){
 whatsappTab.document.title = "Checking reservation availability…";
 whatsappTab.document.body.innerHTML = "<p style='font-family:Arial,sans-serif;padding:24px'>Checking reservation availability…</p>";
 
-if(!(await requireShaniAvailability())){
+let availabilityAllowed = false;
+try {
+  availabilityAllowed = await requireShaniAvailability();
+} catch (err) {
+  console.error("Reservation availability flow failed:", err);
+  alert("Could not complete the availability check. Please try again or contact Shani Manor.");
+}
+if (!availabilityAllowed) {
   whatsappTab.close();
   return;
 }
