@@ -2536,6 +2536,32 @@ nights
 
 
 /* =========================================================
+   OFFER HELPERS — complimentary offers do not change room rates
+========================================================= */
+function offerMoney(amount){
+  return "USD " + Number(amount || 0).toLocaleString(undefined,{maximumFractionDigits:2});
+}
+function activeOfferFor(type){
+  if(typeof shaniOffers === "undefined" || !Array.isArray(shaniOffers)) return null;
+  const nights = getNights();
+  const today = new Date(); today.setHours(0,0,0,0);
+  return shaniOffers.find(function(o){
+    if(!o || o.enabled === false) return false;
+    if(o.type !== type) return false;
+    if(!o.start || !o.end || o.end < o.start) return false;
+    if(today < new Date(o.start + "T00:00:00") || today > new Date(o.end + "T23:59:59")) return false;
+    if(nights && nights < Number(o.minNights || 0)) return false;
+    return true;
+  }) || null;
+}
+function offerDiscount(offer, baseRate){
+  if(!offer || !offer.discountType) return 0;
+  if(offer.discountType === "percent") return Number(baseRate || 0) * Number(offer.value || 0) / 100;
+  if(offer.discountType === "fixed") return Math.min(Number(baseRate || 0), Number(offer.value || 0));
+  return 0;
+}
+
+/* =========================================================
    UPDATE SUMMARY
 ========================================================= */
 
