@@ -1119,16 +1119,7 @@ footer p{
 
 /* OFFERS & PROMOTIONS */
 .offers-section{padding:76px 0;background:#f6f2eb;color:#25342c}
-.offer-banner{display:none;background:#25342c;color:#fff;padding:22px 24px;margin:0 auto;max-width:1200px;border:1px solid #b99a62}
-.offer-banner.show{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.offer-banner .eyebrow{color:#d7bd8b}.offer-banner h2{margin:7px 0;font-size:clamp(22px,3vw,34px)}
-.offer-banner p{margin:0;color:#eee8dc}.offer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:20px;margin-top:30px}
-.offer-card{background:#fff;border:1px solid #e3dacb;padding:26px;box-shadow:0 10px 30px #26352b0b;display:flex;flex-direction:column;gap:12px}
-.offer-card .offer-tag{align-self:flex-start;background:#eee5d3;color:#5a472a;padding:6px 10px;font-size:11px;letter-spacing:1px;text-transform:uppercase}
-.offer-card h3{margin:0;font-size:24px}.offer-card p{margin:0;line-height:1.7}.offer-card .offer-value{font-size:25px;color:#8d6c37;font-weight:600}.offer-card .offer-valid{font-size:12px;color:#777;margin-top:auto;padding-top:10px}
-.offer-admin-toggle{margin-top:28px;background:transparent;border:1px solid #b9a57f;color:#25342c;padding:10px 15px;cursor:pointer}
-.offer-admin{display:none;margin-top:22px;background:#fff;border:1px solid #ded3c1;padding:24px}.offer-admin.open{display:block}.offer-admin-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}.offer-admin label{display:flex;flex-direction:column;gap:6px;font-size:13px}.offer-admin input,.offer-admin select,.offer-admin textarea{width:100%;padding:11px;border:1px solid #d8d0c4;background:#fff;font:inherit;color:#25342c}.offer-admin textarea{min-height:80px}.offer-admin-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.offer-admin-actions button{padding:11px 16px;border:1px solid #25342c;cursor:pointer}.offer-save{background:#25342c;color:#fff}.offer-secondary{background:#fff;color:#25342c}.offer-list{margin-top:20px;border-top:1px solid #e7e0d5;padding-top:14px}.offer-row{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid #eee;flex-wrap:wrap}.offer-row button{padding:6px 10px;cursor:pointer}
-@media(max-width:600px){.offers-section{padding:52px 0}.offer-banner{margin:0 14px;padding:20px}.offer-admin{padding:16px}}
+.homepage-offers{background:#25342c;padding:24px 0;color:#fff}.homepage-offer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.homepage-offer-card{padding:25px;border:1px solid #b99a62;background:linear-gradient(135deg,#25342c,#35483a);display:flex;flex-direction:column;align-items:flex-start;gap:12px}.homepage-offer-card h2{font-family:inherit;font-size:clamp(22px,2.5vw,30px);line-height:1.2;margin:0;color:#fff}.homepage-offer-card p{color:#eee8dc;line-height:1.65;margin:0}.homepage-offer-card .offer-tag{background:#eee5d3;color:#5a472a;padding:6px 10px;font-size:11px;letter-spacing:1px;text-transform:uppercase}.homepage-offer-card .homepage-offer-note{font-size:13px;color:#d7bd8b;font-weight:600}.offer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:20px;margin-top:30px}.offer-card{background:#fff;border:1px solid #e3dacb;padding:26px;box-shadow:0 10px 30px #26352b0b;display:flex;flex-direction:column;gap:12px}.offer-card .offer-tag{align-self:flex-start;background:#eee5d3;color:#5a472a;padding:6px 10px;font-size:11px;letter-spacing:1px;text-transform:uppercase}.offer-card h3{margin:0;font-size:24px}.offer-card .offer-value{font-size:20px;color:#8d6c37;font-weight:600}.offer-card p{margin:0;line-height:1.7}.offer-card .offer-valid{font-size:12px;color:#777;margin-top:auto;padding-top:10px}@media(max-width:700px){.homepage-offer-grid{grid-template-columns:1fr}.homepage-offer-card{padding:21px}} @media(max-width:600px){.offers-section{padding:52px 0}}
 
 </style>
 
@@ -1213,11 +1204,13 @@ Discover Shani Manor
 
 </section>
 
-<!-- ACTIVE OFFER BANNER -->
-<div class="offer-banner" id="offerBanner" aria-live="polite">
-  <div><div class="eyebrow">A LITTLE SOMETHING EXTRA</div><h2 id="offerBannerTitle">Special offers at Shani Manor</h2><p id="offerBannerText">Discover current villa and room promotions.</p></div>
-  <a href="#offers" class="btn btn-white">View offers</a>
-</div>
+<!-- HOMEPAGE OFFER BANNERS: TWO COMPLIMENTARY-BENEFIT OFFERS -->
+<section class="homepage-offers" aria-label="Featured Shani Manor offers">
+  <div class="container homepage-offer-grid" id="homepageOfferBanners">
+    <article class="homepage-offer-card"><span class="offer-tag">FOR COUPLES</span><h2>Exclusive Villa Offer for Couples</h2><p>Complimentary Galle Fort tour, Madu River boat safari, sea turtle visit and a special dinner on your final night.</p><p class="homepage-offer-note">For entire-villa stays of more than 6 nights.</p><a href="#offers" class="btn btn-white">Discover offer</a></article>
+    <article class="homepage-offer-card"><span class="offer-tag">ENTIRE VILLA</span><h2>Exclusive Villa Offer</h2><p>Complimentary airport transfer, Galle Fort tour, Madu River boat safari, sea turtle visit and a special dinner on your final night.</p><p class="homepage-offer-note">For entire-villa stays of more than 6 nights.</p><a href="#offers" class="btn btn-white">Discover offer</a></article>
+  </div>
+</section>
 
 <!-- INTRO -->
 
@@ -1672,28 +1665,8 @@ pleasure of staying in an old Sri Lankan home.
 <!-- OFFERS & PROMOTIONS -->
 <section class="offers-section" id="offers">
   <div class="container">
-    <div class="section-heading"><div><div class="eyebrow">EXCLUSIVE DIRECT-BOOKING DEALS</div><h2>Offers &amp; Promotions.</h2></div><p>Make your time on the southern coast even more special. Check the current offers below.</p></div>
-    <div class="offer-grid" id="offersGrid"><p>Check back soon for special offers.</p></div>
-    <button type="button" class="offer-admin-toggle" id="offerAdminToggle" aria-expanded="false">Manage Offers</button>
-    <div class="offer-admin" id="offerAdmin" aria-label="Offer management panel">
-      <h3 id="offerFormHeading">Add a promotion</h3>
-      <p>Offers are saved in this browser on this device. For a public website, connect a protected admin/backend system to publish changes for all visitors.</p>
-      <form id="offerForm">
-        <input type="hidden" id="offerEditId">
-        <div class="offer-admin-grid">
-          <label>Offer title<input id="offerTitle" required maxlength="80" placeholder="e.g. Coastal Escape"></label>
-          <label>Applies to<select id="offerType"><option value="both">Villa and rooms</option><option value="villa">Entire villa</option><option value="room">Individual rooms</option></select></label>
-          <label>Discount type<select id="offerDiscountType"><option value="percent">Percentage (%)</option><option value="fixed">Fixed amount (USD per night)</option></select></label>
-          <label>Discount value<input id="offerDiscountValue" type="number" required min="0.01" step="0.01" placeholder="e.g. 10"></label>
-          <label>Start date<input id="offerStart" type="date" required></label>
-          <label>End date<input id="offerEnd" type="date" required></label>
-          <label style="grid-column:1/-1">Description<textarea id="offerDescription" maxlength="300" placeholder="What is included in this offer?"></textarea></label>
-          <label><span>Offer status</span><select id="offerEnabled"><option value="true">Active (within dates)</option><option value="false">Draft / disabled</option></select></label>
-        </div>
-        <div class="offer-admin-actions"><button class="offer-save" type="submit">Save offer</button><button class="offer-secondary" type="button" id="offerCancelEdit">Clear form</button></div>
-      </form>
-      <div class="offer-list" id="offerAdminList"></div>
-    </div>
+    <div class="section-heading"><div><div class="eyebrow">COMPLIMENTARY EXPERIENCES</div><h2>Offers &amp; Promotions.</h2></div><p>Two special villa offers with complimentary experiences to make your Shani Manor stay memorable.</p></div>
+    <div class="offer-grid" id="offersGrid"></div>
   </div>
 </section>
 
@@ -2363,16 +2336,14 @@ checkout.value = "";
 }
 
 updateSummary();
+if(typeof renderShaniOffers==="function")renderShaniOffers();
 
 });
 
 
 /* CHECK-OUT */
 
-checkout.addEventListener(
-"change",
-updateSummary
-);
+checkout.addEventListener("change",function(){updateSummary();if(typeof renderShaniOffers==="function")renderShaniOffers();});
 
 
 /* =========================================================
@@ -2893,13 +2864,18 @@ window.addEventListener("resize", function(){
 
 
 /* =========================================================
-   OFFERS & PROMOTIONS — browser-local offer manager
+   OFFERS & PROMOTIONS — two complimentary-benefit offers
+   Original booking rates and WhatsApp/email booking functions remain unchanged.
 ========================================================= */
-const OFFER_STORAGE_KEY = "shaniManorOffers_v1";
+const OFFER_STORAGE_KEY = "shaniManorOffers_v2";
+const DEFAULT_SHANI_OFFERS = [
+ {id:"couples",title:"Exclusive Villa Offer for Couples",type:"couples",minNights:7,start:"2026-01-01",end:"2027-12-31",description:"Complimentary Galle Fort Tour; Madu River Boat Safari; Sea Turtle Visit; and a special dinner on your final night. A professional tour guide and luxury vehicle can be arranged at an additional cost.",enabled:true},
+ {id:"villa",title:"Exclusive Villa Offer",type:"villa",minNights:7,start:"2026-01-01",end:"2027-12-31",description:"One complimentary airport pick-up or drop-off; Galle Fort Tour; Madu River Boat Safari; Sea Turtle Visit; and a special dinner on your final night. A professional tour guide and luxury vehicle can be arranged at an additional cost.",enabled:true}
+];
 let shaniOffers = loadShaniOffers();
 function loadShaniOffers(){
-  try { const v=JSON.parse(localStorage.getItem(OFFER_STORAGE_KEY)||"[]"); return Array.isArray(v)?v:[]; }
-  catch(e){ return []; }
+  try { const v=JSON.parse(localStorage.getItem(OFFER_STORAGE_KEY)||"null"); return Array.isArray(v)&&v.length?v:DEFAULT_SHANI_OFFERS.map(o=>({...o})); }
+  catch(e){ return DEFAULT_SHANI_OFFERS.map(o=>({...o})); }
 }
 function saveShaniOffers(){
   try { localStorage.setItem(OFFER_STORAGE_KEY,JSON.stringify(shaniOffers)); }
@@ -2909,43 +2885,31 @@ function saveShaniOffers(){
 function offerDateValid(o){
   const today=new Date(); today.setHours(0,0,0,0);
   if(!o.enabled || !o.start || !o.end || o.end < o.start) return false;
-  const start=new Date(o.start+"T00:00:00"), end=new Date(o.end+"T23:59:59");
-  return today>=start && today<=end;
+  return today>=new Date(o.start+"T00:00:00") && today<=new Date(o.end+"T23:59:59");
 }
-function offerApplies(o,type){ return o.type==="both" || o.type===type; }
-function offerDiscount(o,rate){
-  const d=o.discountType==="percent" ? rate*(Number(o.value)||0)/100 : Number(o.value)||0;
-  return Math.max(0,Math.min(rate,d));
+function offerNightsValid(o){
+  const a=document.getElementById("checkin")?.value,b=document.getElementById("checkout")?.value;
+  if(!a||!b||b<=a)return true;
+  const nights=Math.round((new Date(b+"T00:00:00")-new Date(a+"T00:00:00"))/86400000);
+  return nights>=Number(o.minNights||7);
 }
-function activeOfferFor(type){ return shaniOffers.find(o=>offerDateValid(o)&&offerApplies(o,type)&&offerDiscount(o,type==="villa"?VILLA_RATE:ROOM_RATE)>0)||null; }
-function offerMoney(n){return "USD "+Number(n).toFixed(Number(n)%1?2:0);}
 function renderShaniOffers(){
   const grid=document.getElementById("offersGrid"); if(!grid)return;
-  const active=shaniOffers.filter(o=>offerDateValid(o));
   grid.innerHTML="";
-  if(!active.length){grid.innerHTML='<div class="offer-card"><span class="offer-tag">Shani Manor</span><h3>Something special is on its way</h3><p>There are no active promotions at the moment. Contact us directly to ask about availability.</p><a href="#booking" class="btn btn-dark">Plan your stay</a></div>';}
-  active.forEach(o=>{
-    const applies=o.type==="both"?"Villa & individual rooms":o.type==="villa"?"Entire villa":"Individual rooms";
-    const rates=[]; if(o.type!=="room"){const d=offerDiscount(o,VILLA_RATE);rates.push("Villa "+offerMoney(VILLA_RATE-d)+"/night (was "+offerMoney(VILLA_RATE)+")");} if(o.type!=="villa"){const d=offerDiscount(o,ROOM_RATE);rates.push("Room "+offerMoney(ROOM_RATE-d)+"/night (was "+offerMoney(ROOM_RATE)+")");}
-    const value=o.discountType==="percent"?Number(o.value)+"% off":offerMoney(o.value)+" off per night";
+  shaniOffers.forEach(o=>{
     const card=document.createElement("article");card.className="offer-card";
-    card.innerHTML='<span class="offer-tag"></span><h3></h3><div class="offer-value"></div><p class="offer-rates"></p><p class="offer-description"></p><div class="offer-valid"></div><a href="#booking" class="btn btn-dark">Enquire &amp; book</a>';
-    card.querySelector('.offer-tag').textContent=applies;card.querySelector('h3').textContent=o.title;card.querySelector('.offer-value').textContent=value;card.querySelector('.offer-rates').textContent=rates.join(" · ");card.querySelector('.offer-description').textContent=o.description||"A special offer for your stay at Shani Manor.";card.querySelector('.offer-valid').textContent="Valid "+o.start+" to "+o.end;
-    grid.appendChild(card);
+    const tag=document.createElement("span");tag.className="offer-tag";tag.textContent=o.type==="couples"?"FOR COUPLES":"ENTIRE VILLA";
+    const title=document.createElement("h3");title.textContent=o.title;
+    const value=document.createElement("div");value.className="offer-value";value.textContent="Complimentary benefits for stays of "+(Number(o.minNights)||7)+"+ nights";
+    const desc=document.createElement("p");desc.textContent=o.description;
+    const valid=document.createElement("div");valid.className="offer-valid";valid.textContent=(offerDateValid(o)?"Offer active · ":o.enabled?"Offer currently outside validity dates · ":"Offer disabled · ")+"Valid "+o.start+" to "+o.end;
+    const btn=document.createElement("a");btn.href="#booking";btn.className="btn btn-dark";btn.textContent="Enquire & book";
+    btn.addEventListener("click",()=>{ if(o.type==="villa" && typeof chooseVilla==="function")chooseVilla(); const r=document.getElementById("requests");if(r){const note="Offer enquiry: "+o.title+" (complimentary benefits apply to stays of "+o.minNights+"+ nights).";if(!r.value.includes(note))r.value=(r.value?r.value+"\n":"")+note;} });
+    card.append(tag,title,value,desc,valid,btn);grid.appendChild(card);
   });
-  const banner=document.getElementById("offerBanner");
-  const bannerOffer=active[0];
-  if(bannerOffer){banner.classList.add("show");document.getElementById("offerBannerTitle").textContent=bannerOffer.title;document.getElementById("offerBannerText").textContent=(bannerOffer.discountType==="percent"?bannerOffer.value+"% off":"Save "+offerMoney(bannerOffer.value)+" per night")+" · Valid "+bannerOffer.start+" to "+bannerOffer.end;}
-  else banner.classList.remove("show");
-  const list=document.getElementById("offerAdminList"); if(list){list.innerHTML="";if(!shaniOffers.length){list.textContent="No offers created yet.";} shaniOffers.forEach(o=>{const row=document.createElement("div");row.className="offer-row";const info=document.createElement("span");info.textContent=o.title+" · "+o.start+" to "+o.end+" · "+(o.enabled?"Enabled":"Disabled");const actions=document.createElement("span");const edit=document.createElement("button");edit.type="button";edit.textContent="Edit";edit.onclick=()=>editShaniOffer(o.id);const del=document.createElement("button");del.type="button";del.textContent="Delete";del.onclick=()=>{if(confirm("Delete offer: "+o.title+"?")){shaniOffers=shaniOffers.filter(x=>x.id!==o.id);saveShaniOffers();}};actions.append(edit,del);row.append(info,actions);list.appendChild(row);});}
-  if(typeof updateSummary==="function") updateSummary();
+  const bannerGrid=document.getElementById("homepageOfferBanners");
+  if(bannerGrid){bannerGrid.querySelectorAll(".homepage-offer-card").forEach((card,i)=>{const o=shaniOffers[i];if(!o)return;card.querySelector(".offer-tag").textContent=o.type==="couples"?"FOR COUPLES":"ENTIRE VILLA";card.querySelector("h2").textContent=o.title;card.querySelector("p").textContent=o.description;card.querySelector(".homepage-offer-note").textContent="Complimentary benefits for stays of "+o.minNights+"+ nights · Valid "+o.start+" to "+o.end;});}
 }
-function clearOfferForm(){document.getElementById("offerForm").reset();document.getElementById("offerEditId").value="";document.getElementById("offerFormHeading").textContent="Add a promotion";}
-function editShaniOffer(id){const o=shaniOffers.find(x=>x.id===id);if(!o)return;document.getElementById("offerEditId").value=o.id;document.getElementById("offerTitle").value=o.title;document.getElementById("offerType").value=o.type;document.getElementById("offerDiscountType").value=o.discountType;document.getElementById("offerDiscountValue").value=o.value;document.getElementById("offerStart").value=o.start;document.getElementById("offerEnd").value=o.end;document.getElementById("offerDescription").value=o.description||"";document.getElementById("offerEnabled").value=String(o.enabled);document.getElementById("offerFormHeading").textContent="Edit promotion";document.getElementById("offerAdmin").scrollIntoView({behavior:"smooth",block:"start"});}
-document.getElementById("offerAdminToggle").addEventListener("click",function(){const panel=document.getElementById("offerAdmin");const open=panel.classList.toggle("open");this.setAttribute("aria-expanded",String(open));});
-document.getElementById("offerCancelEdit").addEventListener("click",clearOfferForm);
-document.getElementById("offerForm").addEventListener("submit",function(e){e.preventDefault();const start=document.getElementById("offerStart").value,end=document.getElementById("offerEnd").value,value=Number(document.getElementById("offerDiscountValue").value);if(end<start){alert("End date must be on or after the start date.");return;}if(!(value>0)){alert("Please enter a discount greater than zero.");return;}const type=document.getElementById("offerType").value;const rates=type==="villa"?[VILLA_RATE]:type==="room"?[ROOM_RATE]:[VILLA_RATE,ROOM_RATE];if(rates.some(r=>document.getElementById("offerDiscountType").value==="percent"?value>100:value>=r)){alert("Discount must be below the full nightly rate (and no more than 100%).");return;}const id=document.getElementById("offerEditId").value||("offer_"+Date.now());const o={id,title:document.getElementById("offerTitle").value.trim(),type,discountType:document.getElementById("offerDiscountType").value,value,start,end,description:document.getElementById("offerDescription").value.trim(),enabled:document.getElementById("offerEnabled").value==="true"};const idx=shaniOffers.findIndex(x=>x.id===id);if(idx>=0)shaniOffers[idx]=o;else shaniOffers.push(o);saveShaniOffers();clearOfferForm();});
-
 
 /* =========================================================
    START
