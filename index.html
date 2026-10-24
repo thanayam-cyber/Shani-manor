@@ -1245,10 +1245,10 @@ Discover Shani Manor
         <li>Galle Fort Tour</li>
         <li>Madu River Boat Safari</li>
         <li>Sea Turtle Visit</li>
-        <li>A special Dinner on your Final night</li>
+        <li>A special dinner on your final night</li>
       </ul>
       <p class="homepage-offer-extra">A professional tour guide and luxury vehicle can be arranged at an additional cost.</p>
-      <p class="homepage-offer-note">Complimentary Benefits for Stays of 7+ nights · Valid 2026-01-01 to 2027-12-31</p>
+      <p class="homepage-offer-note">Complimentary benefits for stays of 7+ nights · Valid 2026-01-01 to 2027-12-31</p>
       <a href="#booking" class="btn btn-white">Book your stay</a>
     </article>
   </div>
@@ -2960,9 +2960,10 @@ function renderShaniOffers(){
     const o=shaniOffers[i];if(!o)return;
     card.querySelector(".offer-tag").textContent=o.type==="couples"?"FOR COUPLES":"ENTIRE VILLA";
     card.querySelector("h2").textContent=o.title;
-    const paragraphs=card.querySelectorAll("p");
-    if(paragraphs[0])paragraphs[0].textContent=o.description;
-    if(paragraphs[1])paragraphs[1].textContent="Complimentary benefits for stays of "+o.minNights+"+ nights · Valid "+o.start+" to "+o.end;
+    const extraNote=card.querySelector(".homepage-offer-extra");
+    if(extraNote)extraNote.textContent="A professional tour guide and luxury vehicle can be arranged at an additional cost.";
+    const validityNote=card.querySelector(".homepage-offer-note");
+    if(validityNote)validityNote.textContent="Complimentary benefits for stays of "+o.minNights+"+ nights · Valid "+o.start+" to "+o.end;
     const bookLink=card.querySelector("a");
     if(bookLink){bookLink.href="#booking";bookLink.textContent="Book your stay";}
   });
