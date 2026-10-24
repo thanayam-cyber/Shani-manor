@@ -2961,9 +2961,9 @@ function renderShaniOffers(){
     card.querySelector(".offer-tag").textContent=o.type==="couples"?"FOR COUPLES":"ENTIRE VILLA";
     card.querySelector("h2").textContent=o.title;
     const extraNote=card.querySelector(".homepage-offer-extra");
-    if(extraNote)extraNote.textContent="A professional tour guide and luxury vehicle can be arranged at an additional cost.";
+    if(extraNote)extraNote.textContent="For an enhanced experience, a professional tour guide and private luxury vehicle can be arranged upon request at an additional charge.";
     const validityNote=card.querySelector(".homepage-offer-note");
-    if(validityNote)validityNote.textContent="Complimentary benefits for stays of "+o.minNights+"+ nights · Valid "+o.start+" to "+o.end;
+    if(validityNote)validityNote.textContent="Complimentary Benefits For Stays of "+o.minNights+"+ nights · Valid "+o.start+" to "+o.end;
     const bookLink=card.querySelector("a");
     if(bookLink){bookLink.href="#booking";bookLink.textContent="Book your stay";}
   });
