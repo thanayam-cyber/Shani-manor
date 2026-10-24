@@ -1121,6 +1121,23 @@ footer p{
 .offers-section{padding:76px 0;background:#f6f2eb;color:#25342c}
 .homepage-offers{background:#25342c;padding:24px 0;color:#fff}.homepage-offer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.homepage-offer-card{padding:25px;border:1px solid #b99a62;background:linear-gradient(135deg,#25342c,#35483a);display:flex;flex-direction:column;align-items:flex-start;gap:12px}.homepage-offer-card h2{font-family:inherit;font-size:clamp(22px,2.5vw,30px);line-height:1.2;margin:0;color:#fff}.homepage-offer-card p{color:#eee8dc;line-height:1.65;margin:0}.homepage-offer-card .offer-tag{background:#eee5d3;color:#5a472a;padding:6px 10px;font-size:11px;letter-spacing:1px;text-transform:uppercase}.homepage-offer-card .homepage-offer-note{font-size:13px;color:#d7bd8b;font-weight:600}.offer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:20px;margin-top:30px}.offer-card{background:#fff;border:1px solid #e3dacb;padding:26px;box-shadow:0 10px 30px #26352b0b;display:flex;flex-direction:column;gap:12px}.offer-card .offer-tag{align-self:flex-start;background:#eee5d3;color:#5a472a;padding:6px 10px;font-size:11px;letter-spacing:1px;text-transform:uppercase}.offer-card h3{margin:0;font-size:24px}.offer-card .offer-value{font-size:20px;color:#8d6c37;font-weight:600}.offer-card p{margin:0;line-height:1.7}.offer-card .offer-valid{font-size:12px;color:#777;margin-top:auto;padding-top:10px}@media(max-width:700px){.homepage-offer-grid{grid-template-columns:1fr}.homepage-offer-card{padding:21px}} @media(max-width:600px){.offers-section{padding:52px 0}}
 
+
+/* Offer inclusions: one clear benefit per bullet */
+.homepage-offer-inclusions {
+  margin: 1rem 0;
+  padding-left: 1.25rem;
+  text-align: left;
+}
+.homepage-offer-inclusions li {
+  margin: 0.45rem 0;
+  line-height: 1.55;
+}
+.homepage-offer-extra {
+  margin-top: 0.8rem;
+  font-size: 0.92em;
+  line-height: 1.55;
+}
+
 </style>
 
 </head>
@@ -1204,11 +1221,36 @@ Discover Shani Manor
 
 </section>
 
-<!-- HOMEPAGE OFFER BANNERS: TWO COMPLIMENTARY-BENEFIT OFFERS -->
+<!-- HOMEPAGE OFFER BANNERS: TWO OFFERS WITH BENEFITS AND VALIDITY -->
 <section class="homepage-offers" id="offers" aria-label="Featured Shani Manor offers">
   <div class="container homepage-offer-grid" id="homepageOfferBanners">
-    <article class="homepage-offer-card"><span class="offer-tag">FOR COUPLES</span><h2>Exclusive Villa Offer for Couples</h2><p>Complimentary Galle Fort tour, Madu River boat safari, sea turtle visit and a special dinner on your final night.</p><p class="homepage-offer-note">For entire-villa stays of more than 6 nights.</p><a href="#offers" class="btn btn-white">Discover offer</a></article>
-    <article class="homepage-offer-card"><span class="offer-tag">ENTIRE VILLA</span><h2>Exclusive Villa Offer</h2><p>Complimentary airport transfer, Galle Fort tour, Madu River boat safari, sea turtle visit and a special dinner on your final night.</p><p class="homepage-offer-note">For entire-villa stays of more than 6 nights.</p><a href="#offers" class="btn btn-white">Discover offer</a></article>
+    <article class="homepage-offer-card">
+      <span class="offer-tag">FOR COUPLES</span>
+      <h2>Exclusive Villa Offer for Couples</h2>
+      <ul class="homepage-offer-inclusions">
+        <li>Complimentary Galle Fort Tour</li>
+        <li>Madu River Boat Safari</li>
+        <li>Sea Turtle Visit</li>
+        <li>A special dinner on your final night</li>
+      </ul>
+      <p class="homepage-offer-extra">A professional tour guide and luxury vehicle can be arranged at an additional cost.</p>
+      <p class="homepage-offer-note">Complimentary benefits for stays of 7+ nights · Valid 2026-01-01 to 2027-12-31</p>
+      <a href="#booking" class="btn btn-white">Book your stay</a>
+    </article>
+    <article class="homepage-offer-card">
+      <span class="offer-tag">ENTIRE VILLA</span>
+      <h2>Exclusive Villa Offer</h2>
+      <ul class="homepage-offer-inclusions">
+        <li>One complimentary airport pick-up or drop-off</li>
+        <li>Galle Fort Tour</li>
+        <li>Madu River Boat Safari</li>
+        <li>Sea Turtle Visit</li>
+        <li>A special Dinner on your Final night</li>
+      </ul>
+      <p class="homepage-offer-extra">A professional tour guide and luxury vehicle can be arranged at an additional cost.</p>
+      <p class="homepage-offer-note">Complimentary Benefits for Stays of 7+ nights · Valid 2026-01-01 to 2027-12-31</p>
+      <a href="#booking" class="btn btn-white">Book your stay</a>
+    </article>
   </div>
 </section>
 
@@ -2921,6 +2963,8 @@ function renderShaniOffers(){
     const paragraphs=card.querySelectorAll("p");
     if(paragraphs[0])paragraphs[0].textContent=o.description;
     if(paragraphs[1])paragraphs[1].textContent="Complimentary benefits for stays of "+o.minNights+"+ nights · Valid "+o.start+" to "+o.end;
+    const bookLink=card.querySelector("a");
+    if(bookLink){bookLink.href="#booking";bookLink.textContent="Book your stay";}
   });
 }
 
