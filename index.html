@@ -2623,7 +2623,7 @@ const discount = offer ? offerDiscount(offer, baseRate) : 0;
 const rate = baseRate - discount;
 
 const rateLabel = document.getElementById("summaryRate");
-rateLabel.textContent = offer ? offerMoney(rate) + " / night (offer; was " + offerMoney(baseRate) + ")" : "USD " + rate + " / night";
+rateLabel.textContent = offer ? offerMoney(rate) + " / night (offer was " + offerMoney(baseRate) + ")" : "USD " + rate + " / night";
 
 
 document.getElementById(
